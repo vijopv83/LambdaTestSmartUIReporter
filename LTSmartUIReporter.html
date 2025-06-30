@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <title>LambdaTest SmartUI Report</title>
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #333333;
+      --panel-color: #f9f9f9;
+      --border-color: #dddddd;
+      --accent-color: #007bff;
+      --hover-color: #eaf3ff;
+    }
+
+    .dark-mode {
+      --bg-color: #1e1e1e;
+      --text-color: #f5f5f5;
+      --panel-color: #2e2e2e;
+      --border-color: #444444;
+      --accent-color: #66aaff;
+      --hover-color: #2a2a2a;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .sticky-header {
+      background: var(--panel-color);
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      height: 50px;
+    }
+
+    .sticky-header h1 {
+      font-size: 1.25rem;
+      margin: 0;
+    }
+
+    select,
+    button,
+    input[type="file"] {
+      margin-left: 5px;
+      padding: 6px 10px;
+      border-radius: 5px;
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-size: 14px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .summary-table th {
+      cursor: pointer;
+      background-color: var(--panel-color);
+      padding: 12px;
+      text-align: left;
+      font-weight: 600;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .summary-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .summary-table td {
+      padding: 12px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .summary-table tr:nth-child(even) {
+      background-color: var(--panel-color);
+    }
+
+    .summary-table tr:hover {
+      background-color: var(--hover-color);
+    }
+
+    .summary-table a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .summary-table a:hover {
+      text-decoration: underline;
+    }
+
+    .controls,
+    .dashboard {
+      padding: 15px 20px;
+      background: var(--panel-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .controls label {
+      margin-right: 15px;
+    }
+
+    .viewport-content {
+      margin: 20px;
+    }
+
+    .image-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .image-box {
+      flex: 1;
+      background: var(--bg-color);
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .image-box img {
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    .label {
+      font-weight: 600;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .mismatch-low {
+      color: green;
+    }
+
+    .mismatch-mid {
+      color: orange;
+    }
+
+    .mismatch-high {
+      color: red;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      border-top: 1px solid var(--border-color);
+      background-color: var(--panel-color);
+      margin-top: 30px;
+      font-size: 0.9em;
+    }
+
+    #buildInfo {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="sticky-header">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <img src="favicon.ico" alt="Logo" width="20" height="20" />
+      <h1>LambdaTest SmartUI</h1>
+    </div>
+    <div>
+      <button onclick="toggleDarkMode()">🌃</button>
+      <label>Upload JSON:
+        <input type="file" id="jsonUpload" accept="application/json" />
+      </label>
+    </div>
+  </div>
+
+  <div id="buildInfo" class="controls"></div>
+
+  <div id="dashboardSection">
+    <div class="controls">
+      <label>Page:
+        <select id="dashboardPageSelect"></select>
+      </label>
+      <label>Browser:
+        <select id="dashboardBrowserSelect"></select>
+      </label>
+      <label>Resolution:
+        <select id="dashboardViewportSelect"></select>
+      </label>
+    </div>
+    <table class="summary-table" id="summaryTable">
+      <thead>
+        <tr>
+          <th onclick="sortTable(0)">Page Name</th>
+          <th onclick="sortTable(1)">Browser</th>
+          <th onclick="sortTable(2)">Resolution</th>
+          <th onclick="sortTable(3)">Mismatch %</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <div id="detailSection" class="hidden">
+    <div class="controls">
+      <button onclick="showDashboard()">&larr; Dashboard</button>
+      <label>Page:
+        <select id="pageSelect"></select>
+      </label>
+      <label>Browser:
+        <select id="browserSelect"></select>
+      </label>
+      <label>Resolution:
+        <select id="viewportSelect"></select>
+        <label>Diff:
+          <select id="imageDiff"></select>
+        </label>
+
+        <button onclick="exportAllPDF()">🧾 Export to PDF</button>
+    </div>
+    <div id="viewportContentContainer"></div>
+  </div>
+
+  <footer>
+    LambdaTest SmartUI Reporter · v1.1.0 · Created by Vijo Varghese
+  </footer>
+
+  <script>
+    let smartUIData = null;
+    let currentPage = null;
+    let currentBrowser = null;
+    let currentViewport = null;
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    function showDashboard() {
+      document.getElementById('dashboardSection').classList.remove('hidden');
+      document.getElementById('detailSection').classList.add('hidden');
+      document.title = `LambdaTest SmartUI Report`;
+    }
+
+    function showDetail(page, browser, viewport) {
+      currentPage = page;
+      currentBrowser = browser;
+      currentViewport = viewport;
+      document.title = `SmartUI ${page}`;
+      populateDropdowns();
+      document.getElementById('dashboardSection').classList.add('hidden');
+      document.getElementById('detailSection').classList.remove('hidden');
+      renderImages(page, browser, viewport);
+    }
+
+    function populateDropdowns() {
+      const pageSelect = document.getElementById('pageSelect');
+      const browserSelect = document.getElementById('browserSelect');
+      const viewportSelect = document.getElementById('viewportSelect');
+      const imageDiffSelect = document.getElementById('imageDiff');
+
+      pageSelect.innerHTML = '';
+      browserSelect.innerHTML = '';
+      viewportSelect.innerHTML = '';
+      imageDiffSelect.innerHTML = ''; // Clear previous options
+
+      const pages = Object.keys(smartUIData.screenshots);
+      pages.forEach(p => {
+        const opt = document.createElement('option');
+        opt.value = p;
+        opt.textContent = p;
+        if (p === currentPage) opt.selected = true;
+        pageSelect.appendChild(opt);
+      });
+
+      const browserList = smartUIData.screenshots[currentPage].map(e => e.browser_name);
+      const browsers = [...new Set(browserList)];
+      browsers.forEach(b => {
+        const opt = document.createElement('option');
+        opt.value = b;
+        opt.textContent = b;
+        if (b === currentBrowser) opt.selected = true;
+        browserSelect.appendChild(opt);
+      });
+
+      const filteredByBrowser = smartUIData.screenshots[currentPage].filter(e => e.browser_name === currentBrowser);
+      const viewports = [...new Set(filteredByBrowser.map(e => e.viewport))].sort((a, b) => a - b);
+      viewports.forEach(v => {
+        const opt = document.createElement('option');
+        opt.value = v;
+        opt.textContent = `${v}px`;
+        if (v == currentViewport) opt.selected = true;
+        viewportSelect.appendChild(opt);
+      });
+
+      // Dynamically extract available diff types
+      const sampleEntry = filteredByBrowser.find(e => e.viewport == currentViewport);
+      if (sampleEntry) {
+        const possibleDiffKeys = ['compared_image', 'captured_diff', 'baseline_diff'];
+        possibleDiffKeys.forEach(key => {
+          if (sampleEntry[key]) {
+            const opt = document.createElement('option');
+            opt.value = key;
+            opt.textContent = key.replace('_', ' ').replace(/\b\w/g, c => c.toUpperCase()); // e.g. "captured_diff" → "Captured Diff"
+            imageDiffSelect.appendChild(opt);
+          }
+        });
+      }
+    }
+
+
+
+    document.getElementById('pageSelect').addEventListener("change", () => {
+      currentPage = document.getElementById('pageSelect').value;
+      // Reset browser & viewport when page changes
+      const browsers = [...new Set(smartUIData.screenshots[currentPage].map(e => e.browser_name))];
+      currentBrowser = browsers[0];
+      const viewports = [...new Set(smartUIData.screenshots[currentPage].filter(e => e.browser_name === currentBrowser).map(e => e.viewport))];
+      currentViewport = viewports[0];
+      populateDropdowns();
+      renderImages(currentPage, currentBrowser, currentViewport);
+    });
+
+    document.getElementById('browserSelect').addEventListener("change", () => {
+      currentBrowser = document.getElementById('browserSelect').value;
+      const viewports = [...new Set(smartUIData.screenshots[currentPage].filter(e => e.browser_name === currentBrowser).map(e => e.viewport))];
+      currentViewport = viewports[0];
+      populateDropdowns();
+      renderImages(currentPage, currentBrowser, currentViewport);
+    });
+
+    document.getElementById('viewportSelect').addEventListener("change", () => {
+      currentViewport = document.getElementById('viewportSelect').value;
+      renderImages(currentPage, currentBrowser, currentViewport);
+    });
+
+    document.getElementById('imageDiff').addEventListener("change", () => {
+      renderImages(currentPage, currentBrowser, currentViewport);
+    });
+
+
+    function renderImages(page, browser, viewport) {
+      const container = document.getElementById('viewportContentContainer');
+      const imageKey = document.getElementById('imageDiff').value;
+      container.innerHTML = '';
+
+      const entries = smartUIData.screenshots[page].filter(
+        e => e.browser_name === browser && e.viewport == viewport
+      );
+
+      entries.forEach(s => {
+        const mismatchClass = getMismatchClass(s.mismatch_percentage);
+        const resolution = `${s.viewport}px`;
+        const diffImage = s.compared_image || s[imageKey] || '';
+
+        // Preload images to avoid blank spaces
+        ['baseline_image', 'captured_image', imageKey].forEach(key => {
+          const img = new Image();
+          img.src = s[key];
+        });
+
+        const div = document.createElement('div');
+        div.className = 'viewport-content';
+        div.innerHTML = `
+      <div class="image-row">
+        <div class="image-box">
+          <span class="label">(${resolution}) Baseline</span>
+          <img src="${s.baseline_image}" alt="Baseline Image" />
+        </div>
+        <div class="image-box">
+          <span class="label">(${resolution}) Captured</span>
+          <img src="${s.captured_image}" alt="Captured Image" />
+        </div>
+        <div class="image-box">
+          <span class="label">(${resolution}) Diff:
+            <span class="${mismatchClass}">Mismatch: ${s.mismatch_percentage}%</span>
+          </span>
+          <img src="${diffImage}" alt="Diff Image" />
+        </div>
+      </div>
+    `;
+        container.appendChild(div);
+      });
+    }
+
+
+
+    function getMismatchClass(percent) {
+      if (percent < 5) return 'mismatch-low';
+      if (percent < 10) return 'mismatch-mid';
+      return 'mismatch-high';
+    }
+
+    function exportAllPDF() {
+      const container = document.getElementById('viewportContentContainer');
+      const imageKey = document.getElementById('imageDiff').value;
+      container.innerHTML = '';
+
+      const entries = smartUIData.screenshots[currentPage];
+
+      const allBrowserViewportCombos = {};
+
+      // Group entries by browser and viewport
+      entries.forEach(entry => {
+        const key = `${entry.browser_name}-${entry.viewport}`;
+        if (!allBrowserViewportCombos[key]) {
+          allBrowserViewportCombos[key] = [];
+        }
+        allBrowserViewportCombos[key].push(entry);
+      });
+
+      const imagePromises = [];
+
+      Object.keys(allBrowserViewportCombos).forEach(key => {
+        const group = allBrowserViewportCombos[key];
+        const browser = group[0].browser_name;
+        const viewport = group[0].viewport;
+        const resolution = `${viewport}px`;
+
+        const mismatchClass = getMismatchClass(group[0].mismatch_percentage);
+        const diffImage = group[0][imageKey] || group[0].compared_image || group[0].captured_diff || group[0].baseline_diff;
+
+        // Prefetch images
+        ['baseline_image', 'captured_image', imageKey].forEach(k => {
+          const img = new Image();
+          img.src = group[0][k];
+          imagePromises.push(new Promise(resolve => {
+            img.onload = resolve;
+            img.onerror = resolve;
+          }));
+        });
+
+        const div = document.createElement('div');
+        div.className = 'viewport-content';
+        div.innerHTML = `
+      <div class="image-row">
+        <div class="image-box">
+          <span class="label">(${browser} / ${resolution}) Baseline</span>
+          <img src="${group[0].baseline_image}" />
+        </div>
+        <div class="image-box">
+          <span class="label">(${browser} / ${resolution}) Captured</span>
+          <img src="${group[0].captured_image}" />
+        </div>
+        <div class="image-box">
+          <span class="label">(${browser} / ${resolution}) Diff:
+            <span class="${mismatchClass}">Mismatch: ${group[0].mismatch_percentage}%</span>
+          </span>
+          <img src="${group[0][imageKey] || diffImage}" />
+        </div>
+      </div>`;
+        container.appendChild(div);
+      });
+
+      // Wait for all images to load, then print
+      Promise.all(imagePromises).then(() => {
+        window.print();
+        renderImages(currentPage, currentBrowser, currentViewport); // Reset view
+      });
+    }
+
+
+
+    function populateDashboardFilters(pages, browsers, viewports) {
+      const pageSelect = document.getElementById('dashboardPageSelect');
+      const browserSelect = document.getElementById('dashboardBrowserSelect');
+      const viewportSelect = document.getElementById('dashboardViewportSelect');
+
+      const createOption = (value) => {
+        const opt = document.createElement('option');
+        opt.value = value;
+        opt.textContent = value;
+        return opt;
+      };
+
+      [pageSelect, browserSelect, viewportSelect].forEach(select => {
+        select.innerHTML = '';
+        select.appendChild(createOption('All'));
+      });
+
+      pages.forEach(p => pageSelect.appendChild(createOption(p)));
+      browsers.forEach(b => browserSelect.appendChild(createOption(b)));
+      Array.from(viewports).sort((a, b) => a - b).forEach(v => viewportSelect.appendChild(createOption(v)));
+    }
+
+    ["dashboardPageSelect", "dashboardBrowserSelect", "dashboardViewportSelect"].forEach(id => {
+      document.getElementById(id).addEventListener("change", () => {
+        filterSummaryTable(id.replace('dashboard', '').toLowerCase());
+      });
+    });
+
+
+
+    function filterSummaryTable(changed = null) {
+      const pageSelect = document.getElementById('dashboardPageSelect');
+      const browserSelect = document.getElementById('dashboardBrowserSelect');
+      const viewportSelect = document.getElementById('dashboardViewportSelect');
+
+      const selectedPage = pageSelect.value;
+      const selectedBrowser = browserSelect.value;
+      const selectedViewport = viewportSelect.value;
+
+      const allEntries = Object.entries(smartUIData.screenshots).flatMap(([page, entries]) =>
+        entries.map(entry => ({ page, ...entry }))
+      );
+
+      // Update dropdown options based on full dataset + currently selected values
+      const pageFiltered = selectedPage === 'All' ? allEntries : allEntries.filter(e => e.page === selectedPage);
+      const browserFiltered = selectedBrowser === 'All' ? pageFiltered : pageFiltered.filter(e => e.browser_name === selectedBrowser);
+      const viewportFiltered = selectedViewport === 'All' ? browserFiltered : browserFiltered.filter(e => e.viewport == selectedViewport);
+
+      // Collect available values for each filter
+      const availablePages = [...new Set(allEntries.map(e => e.page))];
+      const availableBrowsers = [...new Set(pageFiltered.map(e => e.browser_name))];
+      const availableViewports = [...new Set(browserFiltered.map(e => e.viewport))];
+
+      if (changed !== 'page') {
+        updateSelectOptions(pageSelect, availablePages, selectedPage);
+      }
+
+      if (changed !== 'browser') {
+        updateSelectOptions(browserSelect, availableBrowsers, selectedBrowser);
+      }
+
+      if (changed !== 'viewport') {
+        updateSelectOptions(viewportSelect, availableViewports, selectedViewport);
+      }
+
+      // Show filtered rows in table
+      const rows = document.querySelectorAll('#summaryTable tbody tr');
+      rows.forEach(row => {
+        const page = row.dataset.page;
+        const browser = row.dataset.browser;
+        const viewport = row.dataset.viewport;
+
+        const matchPage = selectedPage === 'All' || selectedPage === page;
+        const matchBrowser = selectedBrowser === 'All' || selectedBrowser === browser;
+        const matchViewport = selectedViewport === 'All' || selectedViewport === viewport;
+
+        row.style.display = (matchPage && matchBrowser && matchViewport) ? '' : 'none';
+      });
+    }
+
+
+
+
+    document.getElementById('jsonUpload').addEventListener('change', async function (event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const content = await file.text();
+      try {
+        smartUIData = JSON.parse(content);
+        const { build, project } = smartUIData;
+
+        const fileTime = new Date(file.lastModified).toLocaleString();
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const fileMetaText = `${fileTime} (${timezone})`;
+
+        const buildInfo = document.getElementById('buildInfo');
+        buildInfo.innerHTML = `
+          <div><strong>File Date Time:</strong> ${fileMetaText}</div>
+          <div><strong>Build:</strong> ${build.build_name}</div>
+          <div><strong>Build ID:</strong> ${build.build_id}</div>
+          <div><strong>Status:</strong> ${build.build_status}</div>
+          <div><strong>Comparison:</strong> ${build.comparisonStrategy}</div>
+          <div><strong>Branch:</strong> ${build.branch}</div>
+          <div><strong>Platform:</strong> ${project.platform}</div>
+          <div><strong>Project:</strong> ${project.name}</div>
+          <div><strong>Category:</strong> ${project.projectCategory}</div>
+          <div><strong>User:</strong> ${project.username}</div>
+          <div><strong>Baseline:</strong> ${build.baseline}</div>
+          <div><strong>Pages:</strong> ${Object.keys(smartUIData.screenshots).length}</div>
+        `;
+
+        renderSummaryTable();
+      } catch (err) {
+        alert("Invalid JSON: " + err.message);
+      }
+    });
+
+    function renderSummaryTable() {
+      const tbody = document.querySelector('#summaryTable tbody');
+      tbody.innerHTML = '';
+      const screenshots = smartUIData.screenshots;
+
+      let pageSet = new Set();
+      let browserSet = new Set();
+      let viewportSet = new Set();
+
+      Object.keys(screenshots).forEach(page => {
+        screenshots[page].forEach(entry => {
+          pageSet.add(page);
+          browserSet.add(entry.browser_name);
+          viewportSet.add(entry.viewport);
+
+          const mismatchClass = getMismatchClass(entry.mismatch_percentage);
+          const row = document.createElement('tr');
+          row.dataset.page = page;
+          row.dataset.browser = entry.browser_name;
+          row.dataset.viewport = entry.viewport;
+          row.innerHTML = `
+            <td><a href="#" onclick="showDetail('${page}', '${entry.browser_name}', '${entry.viewport}')">${page}</a></td>
+            <td>${entry.browser_name}</td>
+            <td>${entry.viewport}px</td>
+            <td class="${mismatchClass}">${entry.mismatch_percentage}%</td>
+          `;
+          tbody.appendChild(row);
+        });
+      });
+
+      populateDashboardFilters(Array.from(pageSet), Array.from(browserSet), Array.from(viewportSet));
+    }
+
+    function sortTable(colIndex) {
+      const table = document.getElementById("summaryTable");
+      const tbody = table.querySelector("tbody");
+      const rows = Array.from(tbody.rows);
+      const dir = table.getAttribute(`data-sort-dir-${colIndex}`) === 'asc' ? 'desc' : 'asc';
+      const isNumeric = colIndex === 2 || colIndex === 3;
+
+      rows.sort((a, b) => {
+        const x = a.cells[colIndex].innerText.replace('%', '').replace('px', '');
+        const y = b.cells[colIndex].innerText.replace('%', '').replace('px', '');
+        return (isNumeric ? parseFloat(x) - parseFloat(y) : x.localeCompare(y)) * (dir === 'asc' ? 1 : -1);
+      });
+
+      table.setAttribute(`data-sort-dir-${colIndex}`, dir);
+      tbody.innerHTML = '';
+      rows.forEach(row => tbody.appendChild(row));
+    }
+
+    function updateSelectOptions(selectElem, values, currentValue) {
+      const previous = selectElem.value;
+      selectElem.innerHTML = '';
+
+      const allOpt = document.createElement('option');
+      allOpt.value = 'All';
+      allOpt.textContent = 'All';
+      selectElem.appendChild(allOpt);
+
+      values.sort((a, b) => isNaN(a) ? a.localeCompare(b) : a - b).forEach(val => {
+        const opt = document.createElement('option');
+        opt.value = val;
+        opt.textContent = isNaN(val) ? val : `${val}px`;
+        selectElem.appendChild(opt);
+      });
+
+      // Restore previously selected value if still valid
+      if (values.includes(currentValue)) {
+        selectElem.value = currentValue;
+      } else {
+        selectElem.value = 'All';
+      }
+    }
+
+
+
+  </script>
+</body>
+
+</html>
