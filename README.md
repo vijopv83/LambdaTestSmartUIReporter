@@ -1,6 +1,6 @@
 # 📊 LambdaTest SmartUI Report Viewer
 
-An interactive, client-side HTML report viewer for [LambdaTest Smart UI](https://www.lambdatest.com/visual-testing) visual regression test results.
+An interactive, client-side HTML report viewer for [LambdaTest Smart UI](https://www.lambdatest.com/visual-regression-testing) visual regression test results.
 
 ---
 
