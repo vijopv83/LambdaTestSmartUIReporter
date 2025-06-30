@@ -2,6 +2,8 @@
 
 An interactive, client-side HTML report viewer for [LambdaTest Smart UI](https://www.lambdatest.com/visual-regression-testing) visual regression test results.
 
+Check out the [LambdaTest Smart UI] https://vijopv83.github.io/LambdaTestSmartUIReporter/LTSmartUIReporter.html GitHub Pages to explore it in action."
+
 ---
 
 ## 🚀 Quick Start
