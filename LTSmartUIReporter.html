@@ -556,8 +556,9 @@
     }
     /* --- Print: Force Landscape --- */
     @media print {
-      @page { size: landscape; }
-      body { background: #fff !important; color: #000 !important; }
+      @page { size: landscape; margin-left: 10px; margin-right: 10px; }
+      body { background: #fff !important; color: #000 !important; margin-left: 10px !important; margin-right: 10px !important; }
+      main#mainContent { margin-left: 10px !important; margin-right: 10px !important; }
       .controls, .slider-grip-indicator { display: none !important; }
       .sticky-header-print { display: block !important; position: static !important; background: #f5f7fa !important; color: #222 !important; border-bottom: 1.5px solid #ccc !important; box-shadow: none !important; width: 100vw !important; margin-bottom: 0 !important; padding: 12px 24px !important; font-size: 1.25em !important; page-break-after: avoid !important; }
       #buildInfo {
@@ -614,6 +615,41 @@
       }
       .sticky-header:not(:first-of-type) {
         display: none !important;
+      }
+      .slider-container img.baseline-image {
+        display: none !important;
+      }
+      .slider-container img.after-image {
+        position: static !important;
+        clip-path: none !important;
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        z-index: auto !important;
+        opacity: 1 !important;
+      }
+      .slider-container {
+        position: static !important;
+        box-shadow: none !important;
+        background: none !important;
+      }
+      .slider-bar, .slider-handle {
+        display: none !important;
+      }
+      .pdf-summary-table {
+        border: 1px solid #ccc;
+        margin-bottom: 24px;
+        font-size: 1em;
+        width: 100%;
+      }
+      .pdf-summary-table th, .pdf-summary-table td {
+        border: 1px solid #ccc;
+        padding: 8px 12px;
+        text-align: left;
+      }
+      .pdf-summary-table th {
+        background: #f5f7fa;
+        font-weight: bold;
       }
     }
     @media screen {
@@ -842,7 +878,7 @@
         <h1>LambdaTest SmartUI Reporter</h1>
       </div>
       <div>
-        <button id="toggleDarkModeBtn" onclick="toggleDarkMode()" title="Toggle dark/light mode" class="darkmode-icon-btn">🌙</button>
+        <button id="toggleDarkModeBtn" onclick="toggleDarkMode()" title="Theme" class="darkmode-icon-btn">🌙</button>
         <label>Upload JSON:
           <input type="file" id="jsonUpload" accept="application/json" />
         </label>
@@ -878,7 +914,7 @@
         <label>Resolution:
           <select id="dashboardViewportSelect"></select>
         </label>
-        <button id="resetFiltersBtn" title="Reset filters" class="reset-icon-btn" aria-label="Reset filters" style="margin-left:8px;vertical-align:middle;display:inline-flex;align-items:center;justify-content:center;">
+        <button id="resetFiltersBtn" title="Reset" class="reset-icon-btn" aria-label="Reset filters" style="margin-left:8px;vertical-align:middle;display:inline-flex;align-items:center;justify-content:center;">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;">
             <path d="M10 3a7 7 0 1 1-6.32 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M4 3v4h4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -903,7 +939,7 @@
 
     <div id="detailSection" class="hidden">
       <div class="controls" style="overflow: auto;">
-        <button onclick="showDashboard()" title="Back to dashboard">&larr; Dashboard</button>
+        <button onclick="showDashboard()" title="Dashboard">&larr; Dashboard</button>
         <label>Page:
           <select id="pageSelect"></select>
         </label>
@@ -919,7 +955,7 @@
             <option value="captured_diff">Captured Diff</option>
           </select>
         </label>
-        <button onclick="exportAllPDF()" title="Export all images to PDF (landscape)" style="float: right; margin-left: 16px; padding: 7px 18px; border-radius: 7px; border: 1.5px solid var(--border-color); background: var(--panel-color); color: var(--text-color); font-weight: 500; font-size: 1em; cursor: pointer; box-shadow: 0 2px 8px #0001;">🧾 PDF Export All Views</button>
+        <button onclick="exportAllPDF()" title="PDF Export" style="float: right; margin-left: 16px; padding: 7px 18px; border-radius: 7px; border: 1.5px solid var(--border-color); background: var(--panel-color); color: var(--text-color); font-weight: 500; font-size: 1em; cursor: pointer; box-shadow: 0 2px 8px #0001;">🧾 PDF Export All Views</button>
       </div>
       <div id="viewportContentContainer"></div>
     </div>
@@ -1035,6 +1071,60 @@
       }
     }, { passive: true });
 
+    // Utility: Lazy load images everywhere
+    function setupLazyLoading(container) {
+      if ('IntersectionObserver' in window) {
+        const lazyImgs = container.querySelectorAll('img[loading="lazy"]');
+        lazyImgs.forEach(img => {
+          if (img.dataset.src) return;
+          const src = img.src;
+          img.removeAttribute('src');
+          img.dataset.src = src;
+        });
+        const io = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              if (img.dataset.src) {
+                img.src = img.dataset.src;
+                delete img.dataset.src;
+              }
+              observer.unobserve(img);
+            }
+          });
+        }, { rootMargin: '200px' });
+        lazyImgs.forEach(img => io.observe(img));
+      }
+    }
+    // Patch renderImages to use setupLazyLoading and clean up old images
+    const origRenderImages = window.renderImages || renderImages;
+    window.renderImages = function(page, browser, viewport) {
+      const container = document.getElementById('viewportContentContainer');
+      // Clean up old images
+      Array.from(container.querySelectorAll('img')).forEach(img => { img.src = ''; });
+      origRenderImages(page, browser, viewport);
+      setupLazyLoading(container);
+    };
+    // Patch exportAllPDF to only prefetch images for current export, and clean up after
+    const origExportAllPDF = window.exportAllPDF || exportAllPDF;
+    window.exportAllPDF = function() {
+      const container = document.getElementById('viewportContentContainer');
+      // Clean up old images
+      Array.from(container.querySelectorAll('img')).forEach(img => { img.src = ''; });
+      origExportAllPDF();
+      setupLazyLoading(container);
+      // After export, release image memory
+      setTimeout(() => {
+        Array.from(container.querySelectorAll('img')).forEach(img => { img.src = ''; });
+        container.innerHTML = '';
+        // If detail page is active, re-render images
+        const detailSection = document.getElementById('detailSection');
+        if (detailSection && !detailSection.classList.contains('hidden')) {
+          renderImages(currentPage, currentBrowser, currentViewport);
+        }
+      }, 2000);
+    };
+
     function renderImages(page, browser, viewport) {
       const container = document.getElementById('viewportContentContainer');
       const imageKey = document.getElementById('imageDiff').value;
@@ -1061,7 +1151,19 @@
         </div>
         <div class="image-box">
           <span class="label">(${resolution}) Captured</span>
-          <img src="${s.captured_image}" loading="lazy" />
+          <div class="slider-container" id="slider-${page}-${browser}-${viewport}">
+            <div class="slider-bar" id="bar-${page}-${browser}-${viewport}"></div>
+            <img src="${s.baseline_image}" class="baseline-image" loading="lazy" />
+            <img src="${s.captured_image}" class="after-image" id="after-${page}-${browser}-${viewport}" style="clip-path: inset(0 25% 0 0);" loading="lazy" />
+            <div class="slider-handle" id="handle-${page}-${browser}-${viewport}" style="left:95%;" tabindex="0" aria-label="Image comparison slider" role="slider" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+              <div class="grip">
+                <div class="grip-dot"></div>
+                <div class="grip-dot"></div>
+                <div class="grip-dot"></div>
+                <div class="grip-dot"></div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="image-box">
           <span class="label">(${resolution}) Diff: 
@@ -1115,6 +1217,37 @@
       Promise.all(imagePromises).then(() => {
         // Use DocumentFragment for batch DOM update
         const frag = document.createDocumentFragment();
+        // --- Insert summary table for current page at the top of the PDF fragment ---
+        const pdfSummaryTable = document.createElement('table');
+        pdfSummaryTable.className = 'pdf-summary-table';
+        pdfSummaryTable.style = 'width:100%;margin:24px 0 24px 0;border-collapse:collapse;font-size:1em;';
+        pdfSummaryTable.innerHTML = `
+          <thead>
+            <tr>
+              <th>Page Name</th>
+              <th>Browser</th>
+              <th>Resolution</th>
+              <th>Mismatch %</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        `;
+        const tbody = pdfSummaryTable.querySelector('tbody');
+        const screenshots = smartUIData.value.screenshots[currentPage] || [];
+        screenshots.forEach(entry => {
+          const mismatchClass = getMismatchClass(entry.mismatch_percentage);
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${currentPage}</td>
+            <td>${entry.browser_name}</td>
+            <td>${entry.viewport}px</td>
+            <td class="${mismatchClass}">${entry.mismatch_percentage}%</td>
+            <td>${entry.status || ''}</td>
+          `;
+          tbody.appendChild(row);
+        });
+        frag.appendChild(pdfSummaryTable);
         // --- Main content: browsers/viewport groups ---
         let browserIdx = 0;
         browserMap.forEach((viewportMap, browser) => {
@@ -1153,7 +1286,19 @@
                 </div>
                 <div class="image-box">
                   <span class="label">(${resolution}) Captured</span>
-                  <img src="${s.captured_image}" loading="lazy" />
+                  <div class="slider-container" id="slider-${currentPage}-${browser}-${viewport}">
+                    <div class="slider-bar" id="bar-${currentPage}-${browser}-${viewport}"></div>
+                    <img src="${s.baseline_image}" class="baseline-image" loading="lazy" />
+                    <img src="${s.captured_image}" class="after-image" id="after-${currentPage}-${browser}-${viewport}" style="clip-path: inset(0 25% 0 0);" loading="lazy" />
+                    <div class="slider-handle" id="handle-${currentPage}-${browser}-${viewport}" style="left:95%; background: red;" tabindex="0" aria-label="Image comparison slider" role="slider" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                      <div class="grip">
+                        <div class="grip-dot"></div>
+                        <div class="grip-dot"></div>
+                        <div class="grip-dot"></div>
+                        <div class="grip-dot"></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div class="image-box">
                   <span class="label">(${resolution}) Diff: 
@@ -1736,14 +1881,17 @@
       });
       document.addEventListener('mousemove', function(e) {
         if (popup.style.display === 'block' && (popupImg || popup.contains(thumbPopupSpinner))) {
-          const pad = 24;
+          const pad = 12;
           let width = window.innerWidth * 0.8;
           let height = popupImg && popupImg.naturalHeight && popupImg.naturalWidth ? Math.min(window.innerHeight * 0.8, width * (popupImg.naturalHeight / popupImg.naturalWidth)) : 220;
+          // Position just below and right of mouse pointer
           let left = e.clientX + pad;
-          let top = e.clientY - 20;
-          if (left + width > window.innerWidth) left = window.innerWidth - width - pad;
-          if (top + height > window.innerHeight) top = window.innerHeight - height - pad;
-          if (top < 0) top = pad;
+          let top = e.clientY + pad;
+          // --- Dynamically correct position to stay in viewport ---
+          if (left + width > window.innerWidth) left = Math.max(window.innerWidth - width - pad, pad);
+          if (left < pad) left = pad;
+          if (top + height > window.innerHeight) top = Math.max(window.innerHeight - height - pad, pad);
+          if (top < pad) top = pad;
           popup.style.left = left + 'px';
           popup.style.top = top + 'px';
         }
