@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <title>LambdaTest SmartUI Report</title>
+  <title>LambdaTest SmartUI Reporter</title>
   <style>
     :root {
       --bg-color: #ffffff;
@@ -13,6 +13,30 @@
       --border-color: #dddddd;
       --accent-color: #007bff;
       --hover-color: #eaf3ff;
+      --main-font: 'Public Sans', 'Manrope', 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+      --body-font-size: 16px;
+      --body-line-height: 24px;
+      --body-font-weight: 400;
+      --subtext-font-size: 14px;
+      --subtext-line-height: 20px;
+      --subtext-font-weight: 400;
+      --button-font-size: 15px;
+      --button-line-height: 20px;
+      --button-font-weight: 500;
+      --button-font-weight-bold: 600;
+      --h1-font-size: 36px;
+      --h1-line-height: 44px;
+      --h1-font-weight: 700;
+      --h2-font-size: 30px;
+      --h2-line-height: 38px;
+      --h2-font-weight: 700;
+      --h2-font-weight-alt: 600;
+      --h3-font-size: 24px;
+      --h3-line-height: 32px;
+      --h3-font-weight: 600;
+      --h4-font-size: 20px;
+      --h4-line-height: 28px;
+      --h4-font-weight: 600;
     }
 
     .dark-mode {
@@ -25,7 +49,10 @@
     }
 
     html, body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: var(--main-font) !important;
+      font-size: var(--body-font-size);
+      line-height: var(--body-line-height);
+      font-weight: var(--body-font-weight);
       margin: 0;
       background-color: var(--bg-color);
       color: var(--text-color);
@@ -36,6 +63,82 @@
       overflow-x: hidden;
       width: 100vw;
       box-sizing: border-box;
+      letter-spacing: 0.01em;
+    }
+
+    *, *::before, *::after {
+      font-family: var(--main-font) !important;
+      box-sizing: border-box;
+    }
+
+    main#mainContent, .controls, .summary-table, .image-row, .image-box, .label, .footer-left, .footer-right, .sticky-header, .settings-modal-content {
+      font-family: var(--main-font) !important;
+      letter-spacing: 0.01em;
+    }
+
+    body, main#mainContent {
+      font-size: var(--body-font-size);
+      line-height: var(--body-line-height);
+      font-weight: var(--body-font-weight);
+    }
+
+    .subtext, .footer-left, .footer-right, .summary-table td.subtext, .summary-table th.subtext {
+      font-size: var(--subtext-font-size);
+      line-height: var(--subtext-line-height);
+      font-weight: var(--subtext-font-weight);
+      color: #888;
+    }
+
+    button, .button, .reset-icon-btn, .darkmode-icon-btn, .settings-icon-btn {
+      font-size: var(--button-font-size) !important;
+      line-height: var(--button-line-height) !important;
+      font-weight: var(--button-font-weight) !important;
+    }
+
+    button.strong, .button.strong {
+      font-weight: var(--button-font-weight-bold) !important;
+    }
+
+    h1, .h1 {
+      font-size: var(--h1-font-size);
+      line-height: var(--h1-line-height);
+      font-weight: var(--h1-font-weight);
+      margin: 0 0 0.5em 0;
+      letter-spacing: -0.01em;
+    }
+
+    h2, .h2 {
+      font-size: var(--h2-font-size);
+      line-height: var(--h2-line-height);
+      font-weight: var(--h2-font-weight);
+      margin: 0 0 0.5em 0;
+      letter-spacing: -0.01em;
+    }
+
+    h3, .h3 {
+      font-size: var(--h3-font-size);
+      line-height: var(--h3-line-height);
+      font-weight: var(--h3-font-weight);
+      margin: 0 0 0.5em 0;
+      letter-spacing: -0.01em;
+    }
+
+    h4, .h4 {
+      font-size: var(--h4-font-size);
+      line-height: var(--h4-line-height);
+      font-weight: var(--h4-font-weight);
+      margin: 0 0 0.5em 0;
+      letter-spacing: -0.01em;
+    }
+
+    .summary-table td, .summary-table th {
+      padding-top: 18px;
+      padding-bottom: 18px;
+      letter-spacing: 0.01em;
+    }
+
+    .controls, .dashboard {
+      margin-bottom: 8px;
     }
 
     main#mainContent {
@@ -131,9 +234,14 @@
       color: var(--accent-color);
       text-decoration: none;
       font-weight: 500;
+      cursor: pointer;
+      border-bottom: 1px dotted var(--accent-color);
+      transition: color 0.18s, border-bottom 0.18s;
     }
     .summary-table a:hover {
       text-decoration: underline;
+      color: #0056b3;
+      border-bottom: 2px solid var(--accent-color);
     }
     .summary-table thead th:first-child {
       border-top-left-radius: 14px;
@@ -262,6 +370,34 @@
     @media (max-width: 700px) {
       footer { flex-direction: column; align-items: flex-start; padding: 10px 8px; }
       .footer-left, .footer-right { text-align: left; justify-content: flex-start; }
+      html, body {
+        font-size: 13.6px;
+        line-height: 20.4px;
+      }
+      h1, .h1 {
+        font-size: 30.6px;
+        line-height: 37.4px;
+      }
+      h2, .h2 {
+        font-size: 25.5px;
+        line-height: 32.3px;
+      }
+      h3, .h3 {
+        font-size: 20.4px;
+        line-height: 27.2px;
+      }
+      h4, .h4 {
+        font-size: 17px;
+        line-height: 23.8px;
+      }
+      .subtext, .footer-left, .footer-right, .summary-table td.subtext, .summary-table th.subtext {
+        font-size: 11.9px;
+        line-height: 17px;
+      }
+      button, .button, .reset-icon-btn, .darkmode-icon-btn, .settings-icon-btn {
+        font-size: 12.75px !important;
+        line-height: 17px !important;
+      }
     }
 
     #buildInfo {
@@ -423,8 +559,25 @@
       @page { size: landscape; }
       body { background: #fff !important; color: #000 !important; }
       .controls, .slider-grip-indicator { display: none !important; }
-      .sticky-header { display: flex !important; position: static !important; box-shadow: none !important; border-bottom: 1.5px solid #ccc !important; }
-      #buildInfo { display: grid !important; background: #f9f9f9 !important; color: #222 !important; border-bottom: 1px solid #ccc !important; }
+      .sticky-header-print { display: block !important; position: static !important; background: #f5f7fa !important; color: #222 !important; border-bottom: 1.5px solid #ccc !important; box-shadow: none !important; width: 100vw !important; margin-bottom: 0 !important; padding: 12px 24px !important; font-size: 1.25em !important; page-break-after: avoid !important; }
+      #buildInfo {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 10px 20px !important;
+        background: #f9f9f9 !important;
+        color: #222 !important;
+        border-bottom: 1px solid #ccc !important;
+        margin-bottom: 18px !important;
+        page-break-after: avoid !important;
+        font-size: 1.08em !important;
+        box-shadow: none !important;
+        padding: 12px 24px !important;
+        line-height: 1.25 !important;
+      }
+      body, h1, h2, h3, h4, h5, h6, th, td, .label, .summary-table, .viewport-content, .image-box, .controls, .dashboard, #buildInfo {
+        line-height: 1.25 !important;
+      }
+      #buildInfo-pdf { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 10px 20px !important; background: #f9f9f9 !important; color: #222 !important; border-bottom: 1px solid #ccc !important; margin-bottom: 18px !important; page-break-after: avoid; font-size: 1.08em !important; box-shadow: none !important; padding: 12px 24px !important; line-height: 1.2 !important; }
       .viewport-content { page-break-inside: avoid; }
       .slider-grip-indicator { display: none !important; }
       .slider-bar { display: none !important; }
@@ -433,11 +586,38 @@
         font-weight: bold;
         margin: 32px 0 12px 0;
         color: #333;
-        page-break-before: always;
-      }
-      .pdf-viewport-heading:first-of-type {
         page-break-before: auto;
       }
+      .pdf-header-print { display: block !important; }
+      .pdf-footer-print {
+        display: block !important;
+        position: static !important;
+        width: 100vw !important;
+        font-size: 1em !important;
+        margin: 64px 0 24px 0 !important;
+        text-align: center !important;
+      }
+      footer, .pdf-header-print, .pdf-footer-print { page-break-inside: avoid; }
+      footer { display: none !important; }
+      .sticky-header {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        position: static !important;
+        top: 0 !important;
+        width: 100vw !important;
+        page-break-after: avoid !important;
+        box-shadow: none !important;
+        background: #f5f7fa !important;
+        color: #222 !important;
+      }
+      .sticky-header:not(:first-of-type) {
+        display: none !important;
+      }
+    }
+    @media screen {
+      .pdf-header-print, .pdf-footer-print { display: none !important; }
     }
     /* --- UI/UX Improvements --- */
     button, select {
@@ -632,19 +812,34 @@
     }
     /* Performance: .hidden class for table rows */
     #summaryTable tbody tr.hidden { display: none !important; }
+    #welcomeSection {
+      max-width: 640px;
+      margin: 40px auto 0 auto;
+      padding: 36px 36px 28px 36px;
+      border-radius: 18px;
+      box-shadow: 0 6px 32px #0002;
+      background: linear-gradient(120deg,#f8fbff 60%,#eaf3ff 100%);
+      color: #222;
+      text-align: center;
+      display: block;
+      font-family: var(--main-font);
+      letter-spacing: 0.01em;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.dark-mode #welcomeSection {
+      background: linear-gradient(120deg,#23272e 60%,#23272e 100%);
+      color: #f5f5f5;
+      box-shadow: 0 6px 32px #0008;
+    }
   </style>
 </head>
 
 <body>
   <main id="mainContent" style="flex:1 0 auto;display:flex;flex-direction:column;">
-    <div id="loadingOverlay">
-      <div class="spinner"></div>
-    </div>
-
     <div class="sticky-header">
       <div style="display: flex; align-items: center; gap: 8px;">
         <img src="favicon.ico" alt="Logo" width="20" height="20" />
-        <h1>LambdaTest SmartUI</h1>
+        <h1>LambdaTest SmartUI Reporter</h1>
       </div>
       <div>
         <button id="toggleDarkModeBtn" onclick="toggleDarkMode()" title="Toggle dark/light mode" class="darkmode-icon-btn">🌙</button>
@@ -652,6 +847,22 @@
           <input type="file" id="jsonUpload" accept="application/json" />
         </label>
       </div>
+    </div>
+
+    <section id="welcomeSection" style="max-width:640px;margin:40px auto 0 auto;padding:36px 36px 28px 36px;border-radius:18px;box-shadow:0 6px 32px #0002;background:linear-gradient(120deg,#f8fbff 60%,#eaf3ff 100%);color:#222;text-align:center;display:block;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;letter-spacing:0.01em;">
+      <h2 style="margin-top:0;margin-bottom:18px;color:#007bff;font-size:2em;font-weight:700;letter-spacing:0.01em;">Your visual test report is generated dynamically!</h2>
+      <ol style="text-align:left;margin:24px 0 24px 0;padding-left:28px;font-size:1.13em;line-height:1.7;">
+        <li style="margin-bottom:14px;">Run your SmartUI test command in your terminal:<br>
+          <code style="display:block;background:#f5f7fa;padding:10px 14px;border-radius:8px;margin:10px 0 0 0;font-size:1.04em;color:#d6336c;font-family:'Fira Mono', 'Consolas', 'Menlo', monospace;box-shadow:0 2px 8px #0001;">smartui capture urls.json --config smartui-web.json --fetch-results results.json</code>
+        </li>
+        <li style="margin-bottom:14px;">Open <b style="color:#007bff;">LTSmartUIReporter.html</b> in your favorite browser.</li>
+        <li style="margin-bottom:14px;">Click <b style="color:#007bff;">Upload JSON</b> and select the SmartUI JSON response <b style="color:#d6336c;">results.json</b>.</li>
+      </ol>
+      <div style="margin-top:22px;color:#888;font-size:1.04em;">This message will disappear once you upload your results.</div>
+    </section>
+
+    <div id="loadingOverlay">
+      <div class="spinner"></div>
     </div>
 
     <div id="buildInfo" class="controls"></div>
@@ -723,6 +934,11 @@
   </footer>
   
   <script defer>
+    // Prevent error if renderDashboardCards is not defined
+    if (typeof window.renderDashboardCards !== 'function') {
+      window.renderDashboardCards = function(){};
+    }
+
     const smartUIData = { value: null };
     let currentPage = null;
     let currentBrowser = null;
@@ -884,83 +1100,134 @@
       const container = document.getElementById('viewportContentContainer');
       const imageKey = document.getElementById('imageDiff').value;
       container.innerHTML = '';
-
-      const entries = smartUIData.value.screenshots[currentPage].filter(
-        e => e.browser_name === currentBrowser
-      );
-      const viewports = [...new Set(entries.map(e => e.viewport))].sort((a, b) => a - b);
-
-      const imagePromises = [];
-
-      viewports.forEach(viewport => {
-        // Add a heading for each viewport, with page break before except the first
-        const heading = document.createElement('h2');
-        heading.className = 'pdf-viewport-heading';
-        heading.textContent = `Viewport: ${viewport}px`;
-        if (container.children.length > 0) heading.style.pageBreakBefore = 'always';
-        container.appendChild(heading);
-
-        const filtered = entries.filter(e => e.viewport == viewport);
-        filtered.forEach(s => {
-          const mismatchClass = getMismatchClass(s.mismatch_percentage);
-          const resolution = `${s.viewport}px`;
-
-          // Prefetch images
-          ['baseline_image', 'captured_image', imageKey].forEach(key => {
-            const img = new Image();
-            img.src = s[key];
-            imagePromises.push(new Promise(resolve => {
-              img.onload = resolve;
-              img.onerror = resolve; // resolve even on error to avoid blocking
-            }));
-          });
-
-          const div = document.createElement('div');
-          div.className = 'viewport-content';
-          div.innerHTML = `
-        <div class="image-row">
-          <div class="image-box">
-            <span class="label">(${resolution}) Baseline</span>
-            <img src="${s.baseline_image}" loading="lazy" />
-          </div>
-          <div class="image-box">
-            <span class="label">(${resolution}) Captured</span>
-            <div class="slider-container" id="slider-${currentPage}-${currentBrowser}-${viewport}">
-              <div class="slider-bar" id="bar-${currentPage}-${currentBrowser}-${viewport}"></div>
-              <img src="${s.baseline_image}" class="baseline-image" loading="lazy" />
-              <img src="${s.captured_image}" class="after-image" id="after-${currentPage}-${currentBrowser}-${viewport}" style="clip-path: inset(0 25% 0 0);" loading="lazy" />
-              <div class="slider-handle" id="handle-${currentPage}-${currentBrowser}-${viewport}" style="left:95%; background: red;" tabindex="0" aria-label="Image comparison slider" role="slider" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                <div class="grip">
-                  <div class="grip-dot"></div>
-                  <div class="grip-dot"></div>
-                  <div class="grip-dot"></div>
-                  <div class="grip-dot"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="image-box">
-            <span class="label">(${resolution}) Diff: 
-              <span class="${mismatchClass}">Mismatch: ${s.mismatch_percentage}%</span>
-            </span>
-            <img src="${s[imageKey]}" loading="lazy" />
-          </div>
-        </div>`;
-          container.appendChild(div);
+      // Group screenshots by browser, then by viewport in a single pass
+      const screenshots = smartUIData.value.screenshots[currentPage];
+      const browserMap = new Map();
+      const uniqueImageUrls = new Set();
+      screenshots.forEach(e => {
+        if (!browserMap.has(e.browser_name)) browserMap.set(e.browser_name, new Map());
+        const viewportMap = browserMap.get(e.browser_name);
+        if (!viewportMap.has(e.viewport)) viewportMap.set(e.viewport, []);
+        viewportMap.get(e.viewport).push(e);
+        // Collect unique image URLs for prefetch
+        ['baseline_image', 'captured_image', imageKey].forEach(key => {
+          if (e[key]) uniqueImageUrls.add(e[key]);
         });
       });
-
-      // Wait until all images are loaded before printing
+      // Prefetch all unique images
+      const imagePromises = [];
+      uniqueImageUrls.forEach(url => {
+        const img = new Image();
+        img.src = url;
+        imagePromises.push(new Promise(resolve => {
+          img.onload = resolve;
+          img.onerror = resolve;
+        }));
+      });
       Promise.all(imagePromises).then(() => {
+        // Use DocumentFragment for batch DOM update
+        const frag = document.createDocumentFragment();
+        // --- Main content: browsers/viewport groups ---
+        let browserIdx = 0;
+        browserMap.forEach((viewportMap, browser) => {
+          const browserGroupDiv = document.createElement('div');
+          if (browserIdx > 0) browserGroupDiv.style.pageBreakBefore = 'always';
+          // Add a heading for the browser
+          const browserHeading = document.createElement('h2');
+          browserHeading.className = 'pdf-viewport-heading';
+          browserHeading.textContent = `Browser: ${browser}`;
+          browserGroupDiv.appendChild(browserHeading);
+          // For each viewport in this browser
+          Array.from(viewportMap.keys()).sort((a, b) => a - b).forEach(viewport => {
+            // Add a title for the viewport
+            const viewportTitle = document.createElement('h3');
+            viewportTitle.textContent = `Viewport: ${viewport}px`;
+            viewportTitle.style.margin = '18px 0 8px 0';
+            browserGroupDiv.appendChild(viewportTitle);
+            // Render all entries for this browser/viewport
+            const filtered = viewportMap.get(viewport);
+            if (!filtered || filtered.length === 0) {
+              const div = document.createElement('div');
+              div.className = 'viewport-content';
+              div.innerHTML = `<div style="color:#888;padding:24px 0 24px 0;text-align:center;">No images for this browser/viewport.</div>`;
+              browserGroupDiv.appendChild(div);
+            } else {
+              filtered.forEach(s => {
+                const mismatchClass = getMismatchClass(s.mismatch_percentage);
+                const resolution = `${s.viewport}px`;
+                const div = document.createElement('div');
+                div.className = 'viewport-content';
+                div.innerHTML = `
+              <div class="image-row">
+                <div class="image-box">
+                  <span class="label">(${resolution}) Baseline</span>
+                  <img src="${s.baseline_image}" loading="lazy" />
+                </div>
+                <div class="image-box">
+                  <span class="label">(${resolution}) Captured</span>
+                  <div class="slider-container" id="slider-${currentPage}-${browser}-${viewport}">
+                    <div class="slider-bar" id="bar-${currentPage}-${browser}-${viewport}"></div>
+                    <img src="${s.baseline_image}" class="baseline-image" loading="lazy" />
+                    <img src="${s.captured_image}" class="after-image" id="after-${currentPage}-${browser}-${viewport}" style="clip-path: inset(0 25% 0 0);" loading="lazy" />
+                    <div class="slider-handle" id="handle-${currentPage}-${browser}-${viewport}" style="left:95%; background: red;" tabindex="0" aria-label="Image comparison slider" role="slider" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                      <div class="grip">
+                        <div class="grip-dot"></div>
+                        <div class="grip-dot"></div>
+                        <div class="grip-dot"></div>
+                        <div class="grip-dot"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="image-box">
+                  <span class="label">(${resolution}) Diff: 
+                    <span class="${mismatchClass}">Mismatch: ${s.mismatch_percentage}%</span>
+                  </span>
+                  <img src="${s[imageKey]}" loading="lazy" />
+                </div>
+              </div>`;
+                browserGroupDiv.appendChild(div);
+              });
+            }
+          });
+          frag.appendChild(browserGroupDiv);
+          browserIdx++;
+        });
+        // Add footer to the very last page
+        const pdfFooter = document.createElement('div');
+        pdfFooter.className = 'pdf-footer-print';
+        pdfFooter.textContent = document.querySelector('footer')?.innerText || '';
+        frag.appendChild(pdfFooter);
+        container.innerHTML = '';
+        container.appendChild(frag);
         // Set all sliders to 100% before printing
         setAllSliders(100);
-        // Wait a tick to ensure DOM updates
-        setTimeout(() => {
-          window.print();
-          // Restore all sliders to 75% after printing
-          setTimeout(() => setAllSliders(75), 100);
-          renderImages(currentPage, currentBrowser, currentViewport);
-        }, 100);
+        // Wait for all images to be rendered in the DOM before printing
+        const imgs = Array.from(container.querySelectorAll('img'));
+        let loaded = 0;
+        if (imgs.length === 0) {
+          doPrint();
+        } else {
+          imgs.forEach(img => {
+            if (img.complete) {
+              loaded++;
+              if (loaded === imgs.length) doPrint();
+            } else {
+              img.onload = img.onerror = () => {
+                loaded++;
+                if (loaded === imgs.length) doPrint();
+              };
+            }
+          });
+        }
+        function doPrint() {
+          setTimeout(() => {
+            window.print();
+            // Restore all sliders to 75% after printing
+            setTimeout(() => setAllSliders(75), 100);
+            renderImages(currentPage, currentBrowser, currentViewport);
+          }, 100);
+        }
       });
     }
 
@@ -1021,61 +1288,85 @@
       });
     }
 
-    document.getElementById('jsonUpload').addEventListener('change', async function (event) {
-      const file = event.target.files[0];
+    function hideWelcomeSection() {
+      const section = document.getElementById('welcomeSection');
+      if (section) section.style.display = 'none';
+    }
+    function showWelcomeSection() {
+      const section = document.getElementById('welcomeSection');
+      if (section) section.style.display = 'block';
+    }
+    // On load, show welcome section if no data
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!smartUIData.value) {
+        showWelcomeSection();
+        // Hide dashboard/tables until data is loaded
+        document.getElementById('dashboardSection').style.display = 'none';
+        document.getElementById('detailSection').style.display = 'none';
+        document.getElementById('buildInfo').style.display = 'none';
+      }
+    });
+    // On JSON upload, hide welcome section and show dashboard
+    function handleJsonUpload(file) {
       if (!file) return;
       const overlay = document.getElementById('loadingOverlay');
       overlay.classList.add('active');
-      const content = await file.text();
-      try {
-        smartUIData.value = JSON.parse(content);
-        const { build, project } = smartUIData.value;
-        // Enable Export CSV button
-        const exportBtn = document.getElementById('exportCsvBtn');
-        if (exportBtn) {
-          exportBtn.disabled = false;
-          exportBtn.style.opacity = '';
-        }
-        const fileTime = new Date(file.lastModified).toLocaleString();
-        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        const fileMetaText = `${fileTime} (${timezone})`;
-
-        let buildInfo = document.getElementById('buildInfo');
-        if (!buildInfo) {
-          // Recreate and insert after sticky-header if missing
-          const stickyHeader = document.querySelector('.sticky-header');
-          buildInfo = document.createElement('div');
-          buildInfo.id = 'buildInfo';
-          buildInfo.className = 'controls';
-          if (stickyHeader && stickyHeader.parentNode) {
-            stickyHeader.parentNode.insertBefore(buildInfo, stickyHeader.nextSibling);
-          } else {
-            document.body.insertBefore(buildInfo, document.body.firstChild);
+      file.text().then(content => {
+        try {
+          smartUIData.value = JSON.parse(content);
+          // Enable Export CSV button
+          const exportBtn = document.getElementById('exportCsvBtn');
+          if (exportBtn) {
+            exportBtn.disabled = false;
+            exportBtn.style.opacity = '';
           }
+          const { build, project } = smartUIData.value;
+          const fileTime = new Date(file.lastModified).toLocaleString();
+          const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+          const fileMetaText = `${fileTime} (${timezone})`;
+          let buildInfo = document.getElementById('buildInfo');
+          if (!buildInfo) {
+            const stickyHeader = document.querySelector('.sticky-header');
+            buildInfo = document.createElement('div');
+            buildInfo.id = 'buildInfo';
+            buildInfo.className = 'controls';
+            if (stickyHeader && stickyHeader.parentNode) {
+              stickyHeader.parentNode.insertBefore(buildInfo, stickyHeader.nextSibling);
+            } else {
+              document.body.insertBefore(buildInfo, document.body.firstChild);
+            }
+          }
+          buildInfo.innerHTML = `
+            <div><strong>File Date Time:</strong> ${fileMetaText}</div>
+            <div><strong>Build:</strong> ${build.build_name}</div>
+            <div><strong>Build ID:</strong> ${build.build_id}</div>
+            <div><strong>Status:</strong> ${build.build_status}</div>
+            <div><strong>Comparison:</strong> ${build.comparisonStrategy}</div>
+            <div><strong>Branch:</strong> ${build.branch}</div>
+            <div><strong>Platform:</strong> ${project.platform}</div>
+            <div><strong>Project:</strong> ${project.name}</div>
+            <div><strong>Category:</strong> ${project.projectCategory}</div>
+            <div><strong>User:</strong> ${project.username}</div>
+            <div><strong>Baseline:</strong> ${build.baseline}</div>
+            <div><strong>Pages:</strong> ${Object.keys(smartUIData.value.screenshots).length}</div>
+          `;
+          renderSummaryTable(true);
+          renderDashboardCards();
+          showDashboard();
+          hideWelcomeSection();
+          // Always show dashboard, detail, and build info after upload
+          document.getElementById('dashboardSection').style.display = '';
+          document.getElementById('detailSection').style.display = '';
+          document.getElementById('buildInfo').style.display = '';
+          setTimeout(() => overlay.classList.remove('active'), 400);
+        } catch (err) {
+          alert("Invalid JSON: " + err.message);
+          overlay.classList.remove('active');
         }
-        buildInfo.innerHTML = `
-          <div><strong>File Date Time:</strong> ${fileMetaText}</div>
-          <div><strong>Build:</strong> ${build.build_name}</div>
-          <div><strong>Build ID:</strong> ${build.build_id}</div>
-          <div><strong>Status:</strong> ${build.build_status}</div>
-          <div><strong>Comparison:</strong> ${build.comparisonStrategy}</div>
-          <div><strong>Branch:</strong> ${build.branch}</div>
-          <div><strong>Platform:</strong> ${project.platform}</div>
-          <div><strong>Project:</strong> ${project.name}</div>
-          <div><strong>Category:</strong> ${project.projectCategory}</div>
-          <div><strong>User:</strong> ${project.username}</div>
-          <div><strong>Baseline:</strong> ${build.baseline}</div>
-          <div><strong>Pages:</strong> ${Object.keys(smartUIData.value.screenshots).length}</div>
-        `;
-
-        renderSummaryTable(true);
-        renderDashboardCards();
-        showDashboard();
-        setTimeout(() => overlay.classList.remove('active'), 400);
-      } catch (err) {
-        alert("Invalid JSON: " + err.message);
-        overlay.classList.remove('active');
-      }
+      });
+    }
+    document.getElementById('jsonUpload').addEventListener('change', function (event) {
+      handleJsonUpload(event.target.files[0]);
     });
 
     function renderSummaryTable(defaultSort = true) {
@@ -1349,6 +1640,19 @@
         btn.textContent = '🌙';
         btn.title = 'Switch to dark mode';
       }
+      // Also update welcomeSection colors
+      const welcome = document.getElementById('welcomeSection');
+      if (welcome) {
+        if (document.body.classList.contains('dark-mode')) {
+          welcome.style.background = 'linear-gradient(120deg,#23272e 60%,#23272e 100%)';
+          welcome.style.color = '#f5f5f5';
+          welcome.style.boxShadow = '0 6px 32px #0008';
+        } else {
+          welcome.style.background = 'linear-gradient(120deg,#f8fbff 60%,#eaf3ff 100%)';
+          welcome.style.color = '#222';
+          welcome.style.boxShadow = '0 6px 32px #0002';
+        }
+      }
     }
     // Patch toggleDarkMode to update icon
     const origToggleDarkMode = window.toggleDarkMode;
@@ -1474,11 +1778,6 @@
         }
       });
     })();
-
-    // Prevent error if renderDashboardCards is not defined
-    if (typeof window.renderDashboardCards !== 'function') {
-      window.renderDashboardCards = function(){};
-    }
 
     // Reset filters button logic
     document.addEventListener('DOMContentLoaded', function() {
