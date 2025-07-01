@@ -48,7 +48,8 @@
       --hover-color: #2a2a2a;
     }
 
-    html, body {
+    html,
+    body {
       font-family: var(--main-font) !important;
       font-size: var(--body-font-size);
       line-height: var(--body-line-height);
@@ -66,40 +67,62 @@
       letter-spacing: 0.01em;
     }
 
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       font-family: var(--main-font) !important;
       box-sizing: border-box;
     }
 
-    main#mainContent, .controls, .summary-table, .image-row, .image-box, .label, .footer-left, .footer-right, .sticky-header, .settings-modal-content {
+    main#mainContent,
+    .controls,
+    .summary-table,
+    .image-row,
+    .image-box,
+    .label,
+    .footer-left,
+    .footer-right,
+    .sticky-header,
+    .settings-modal-content {
       font-family: var(--main-font) !important;
       letter-spacing: 0.01em;
     }
 
-    body, main#mainContent {
+    body,
+    main#mainContent {
       font-size: var(--body-font-size);
       line-height: var(--body-line-height);
       font-weight: var(--body-font-weight);
     }
 
-    .subtext, .footer-left, .footer-right, .summary-table td.subtext, .summary-table th.subtext {
+    .subtext,
+    .footer-left,
+    .footer-right,
+    .summary-table td.subtext,
+    .summary-table th.subtext {
       font-size: var(--subtext-font-size);
       line-height: var(--subtext-line-height);
       font-weight: var(--subtext-font-weight);
       color: #888;
     }
 
-    button, .button, .reset-icon-btn, .darkmode-icon-btn, .settings-icon-btn {
+    button,
+    .button,
+    .reset-icon-btn,
+    .darkmode-icon-btn,
+    .settings-icon-btn {
       font-size: var(--button-font-size) !important;
       line-height: var(--button-line-height) !important;
       font-weight: var(--button-font-weight) !important;
     }
 
-    button.strong, .button.strong {
+    button.strong,
+    .button.strong {
       font-weight: var(--button-font-weight-bold) !important;
     }
 
-    h1, .h1 {
+    h1,
+    .h1 {
       font-size: var(--h1-font-size);
       line-height: var(--h1-line-height);
       font-weight: var(--h1-font-weight);
@@ -107,7 +130,8 @@
       letter-spacing: -0.01em;
     }
 
-    h2, .h2 {
+    h2,
+    .h2 {
       font-size: var(--h2-font-size);
       line-height: var(--h2-line-height);
       font-weight: var(--h2-font-weight);
@@ -115,7 +139,8 @@
       letter-spacing: -0.01em;
     }
 
-    h3, .h3 {
+    h3,
+    .h3 {
       font-size: var(--h3-font-size);
       line-height: var(--h3-line-height);
       font-weight: var(--h3-font-weight);
@@ -123,7 +148,8 @@
       letter-spacing: -0.01em;
     }
 
-    h4, .h4 {
+    h4,
+    .h4 {
       font-size: var(--h4-font-size);
       line-height: var(--h4-line-height);
       font-weight: var(--h4-font-weight);
@@ -131,13 +157,15 @@
       letter-spacing: -0.01em;
     }
 
-    .summary-table td, .summary-table th {
+    .summary-table td,
+    .summary-table th {
       padding-top: 18px;
       padding-bottom: 18px;
       letter-spacing: 0.01em;
     }
 
-    .controls, .dashboard {
+    .controls,
+    .dashboard {
       margin-bottom: 8px;
     }
 
@@ -171,6 +199,7 @@
       box-sizing: border-box;
       transition: background 0.2s, color 0.2s;
     }
+
     body.dark-mode .sticky-header {
       background: #23272e;
       color: #e0e0e0;
@@ -207,6 +236,7 @@
       box-shadow: 0 4px 24px #0001;
       background: var(--bg-color);
     }
+
     .summary-table th {
       cursor: pointer;
       background-color: var(--panel-color);
@@ -217,6 +247,7 @@
       color: #111;
       font-size: 1.08em;
     }
+
     .summary-table td {
       padding: 14px 16px;
       border-bottom: 1px solid var(--border-color);
@@ -224,12 +255,15 @@
       background: var(--bg-color);
       transition: background 0.18s;
     }
+
     .summary-table tr:nth-child(even) td {
       background-color: var(--panel-color);
     }
+
     .summary-table tr:hover td {
       background-color: var(--hover-color);
     }
+
     .summary-table a {
       color: var(--accent-color);
       text-decoration: none;
@@ -238,20 +272,25 @@
       border-bottom: 1px dotted var(--accent-color);
       transition: color 0.18s, border-bottom 0.18s;
     }
+
     .summary-table a:hover {
       text-decoration: underline;
       color: #0056b3;
       border-bottom: 2px solid var(--accent-color);
     }
+
     .summary-table thead th:first-child {
       border-top-left-radius: 14px;
     }
+
     .summary-table thead th:last-child {
       border-top-right-radius: 14px;
     }
+
     .summary-table tr:last-child td:first-child {
       border-bottom-left-radius: 14px;
     }
+
     .summary-table tr:last-child td:last-child {
       border-bottom-right-radius: 14px;
     }
@@ -288,7 +327,7 @@
     }
 
     .image-box:hover {
-      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
       border: 1.5px solid var(--accent-color);
     }
 
@@ -336,10 +375,12 @@
       height: 48px;
       transition: background 0.2s, color 0.2s;
     }
+
     body.dark-mode footer {
       background-color: #23272e;
       color: #e0e0e0;
     }
+
     .footer-left {
       text-align: left;
       white-space: nowrap;
@@ -348,6 +389,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
+
     .footer-right {
       text-align: right;
       white-space: nowrap;
@@ -360,6 +402,7 @@
       gap: 8px;
       justify-content: flex-end;
     }
+
     .footer-right a {
       color: var(--accent-color);
       text-decoration: none;
@@ -367,34 +410,64 @@
       margin-left: 4px;
       word-break: break-all;
     }
+
     @media (max-width: 700px) {
-      footer { flex-direction: column; align-items: flex-start; padding: 10px 8px; }
-      .footer-left, .footer-right { text-align: left; justify-content: flex-start; }
-      html, body {
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 8px;
+      }
+
+      .footer-left,
+      .footer-right {
+        text-align: left;
+        justify-content: flex-start;
+      }
+
+      html,
+      body {
         font-size: 13.6px;
         line-height: 20.4px;
       }
-      h1, .h1 {
+
+      h1,
+      .h1 {
         font-size: 30.6px;
         line-height: 37.4px;
       }
-      h2, .h2 {
+
+      h2,
+      .h2 {
         font-size: 25.5px;
         line-height: 32.3px;
       }
-      h3, .h3 {
+
+      h3,
+      .h3 {
         font-size: 20.4px;
         line-height: 27.2px;
       }
-      h4, .h4 {
+
+      h4,
+      .h4 {
         font-size: 17px;
         line-height: 23.8px;
       }
-      .subtext, .footer-left, .footer-right, .summary-table td.subtext, .summary-table th.subtext {
+
+      .subtext,
+      .footer-left,
+      .footer-right,
+      .summary-table td.subtext,
+      .summary-table th.subtext {
         font-size: 11.9px;
         line-height: 17px;
       }
-      button, .button, .reset-icon-btn, .darkmode-icon-btn, .settings-icon-btn {
+
+      button,
+      .button,
+      .reset-icon-btn,
+      .darkmode-icon-btn,
+      .settings-icon-btn {
         font-size: 12.75px !important;
         line-height: 17px !important;
       }
@@ -446,6 +519,7 @@
       border-radius: 10px;
       box-shadow: 0 2px 12px #0001;
     }
+
     .slider-container img.baseline-image {
       width: 100%;
       height: auto;
@@ -454,6 +528,7 @@
       z-index: 1;
       border-radius: 10px;
     }
+
     .slider-container img.after-image {
       width: 100%;
       height: auto;
@@ -465,6 +540,7 @@
       pointer-events: none;
       border-radius: 10px;
     }
+
     .slider-handle {
       position: absolute;
       top: 50%;
@@ -484,17 +560,21 @@
       outline: none;
       transform: translateY(-50%);
     }
+
     .slider-container:hover .slider-handle {
       box-shadow: 0 4px 24px #ff333388, 0 0 0 4px #ffeaea;
       transform: translateY(-50%) scale(1.08);
       cursor: grab;
     }
-    .slider-handle.grabbing, .slider-handle.active {
+
+    .slider-handle.grabbing,
+    .slider-handle.active {
       cursor: grabbing !important;
       box-shadow: 0 6px 32px #ff3333cc, 0 0 0 6px #ffeaea;
       background: #ffeaea;
       transform: translateY(-50%) scale(1.12);
     }
+
     .slider-handle .grip {
       display: flex;
       flex-direction: column;
@@ -502,6 +582,7 @@
       align-items: center;
       justify-content: center;
     }
+
     .slider-handle .grip-dot {
       width: 6px;
       height: 6px;
@@ -511,16 +592,27 @@
       margin: 0 0.5px;
       transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
     }
+
     .slider-handle.active .grip-dot {
       background: #fff;
       box-shadow: 0 0 8px #ff3333, 0 0 0 2px #ff3333;
-      animation: grip-bounce 0.4s cubic-bezier(.68,-0.55,.27,1.55) alternate infinite;
+      animation: grip-bounce 0.4s cubic-bezier(.68, -0.55, .27, 1.55) alternate infinite;
     }
+
     @keyframes grip-bounce {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.3); }
-      100% { transform: scale(1); }
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.3);
+      }
+
+      100% {
+        transform: scale(1);
+      }
     }
+
     /* --- Slider Grip Indicator --- */
     .slider-grip-indicator {
       position: fixed;
@@ -544,23 +636,66 @@
       pointer-events: none;
       visibility: hidden;
     }
+
     .slider-grip-indicator.active {
       visibility: visible;
       pointer-events: auto;
       animation: grip-bounce 0.7s;
     }
+
     @keyframes grip-bounce {
-      0% { transform: scale(0.7); }
-      60% { transform: scale(1.15); }
-      100% { transform: scale(1); }
+      0% {
+        transform: scale(0.7);
+      }
+
+      60% {
+        transform: scale(1.15);
+      }
+
+      100% {
+        transform: scale(1);
+      }
     }
+
     /* --- Print: Force Landscape --- */
     @media print {
-      @page { size: landscape; margin-left: 10px; margin-right: 10px; }
-      body { background: #fff !important; color: #000 !important; margin-left: 10px !important; margin-right: 10px !important; }
-      main#mainContent { margin-left: 10px !important; margin-right: 10px !important; }
-      .controls, .slider-grip-indicator { display: none !important; }
-      .sticky-header-print { display: block !important; position: static !important; background: #f5f7fa !important; color: #222 !important; border-bottom: 1.5px solid #ccc !important; box-shadow: none !important; width: 100vw !important; margin-bottom: 0 !important; padding: 12px 24px !important; font-size: 1.25em !important; page-break-after: avoid !important; }
+      @page {
+        size: landscape;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+      }
+
+      main#mainContent {
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+      }
+
+      .controls,
+      .slider-grip-indicator {
+        display: none !important;
+      }
+
+      .sticky-header-print {
+        display: block !important;
+        position: static !important;
+        background: #f5f7fa !important;
+        color: #222 !important;
+        border-bottom: 1.5px solid #ccc !important;
+        box-shadow: none !important;
+        width: 100vw !important;
+        margin-bottom: 0 !important;
+        padding: 12px 24px !important;
+        font-size: 1.25em !important;
+        page-break-after: avoid !important;
+      }
+
       #buildInfo {
         display: grid !important;
         grid-template-columns: repeat(3, 1fr) !important;
@@ -575,13 +710,53 @@
         padding: 12px 24px !important;
         line-height: 1.25 !important;
       }
-      body, h1, h2, h3, h4, h5, h6, th, td, .label, .summary-table, .viewport-content, .image-box, .controls, .dashboard, #buildInfo {
+
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      th,
+      td,
+      .label,
+      .summary-table,
+      .viewport-content,
+      .image-box,
+      .controls,
+      .dashboard,
+      #buildInfo {
         line-height: 1.25 !important;
       }
-      #buildInfo-pdf { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 10px 20px !important; background: #f9f9f9 !important; color: #222 !important; border-bottom: 1px solid #ccc !important; margin-bottom: 18px !important; page-break-after: avoid; font-size: 1.08em !important; box-shadow: none !important; padding: 12px 24px !important; line-height: 1.2 !important; }
-      .viewport-content { page-break-inside: avoid; }
-      .slider-grip-indicator { display: none !important; }
-      .slider-bar { display: none !important; }
+
+      #buildInfo-pdf {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 10px 20px !important;
+        background: #f9f9f9 !important;
+        color: #222 !important;
+        border-bottom: 1px solid #ccc !important;
+        margin-bottom: 18px !important;
+        page-break-after: avoid;
+        font-size: 1.08em !important;
+        box-shadow: none !important;
+        padding: 12px 24px !important;
+        line-height: 1.2 !important;
+      }
+
+      .viewport-content {
+        page-break-inside: avoid;
+      }
+
+      .slider-grip-indicator {
+        display: none !important;
+      }
+
+      .slider-bar {
+        display: none !important;
+      }
+
       .pdf-viewport-heading {
         font-size: 1.5em;
         font-weight: bold;
@@ -589,7 +764,11 @@
         color: #333;
         page-break-before: auto;
       }
-      .pdf-header-print { display: block !important; }
+
+      .pdf-header-print {
+        display: block !important;
+      }
+
       .pdf-footer-print {
         display: block !important;
         position: static !important;
@@ -598,8 +777,17 @@
         margin: 64px 0 24px 0 !important;
         text-align: center !important;
       }
-      footer, .pdf-header-print, .pdf-footer-print { page-break-inside: avoid; }
-      footer { display: none !important; }
+
+      footer,
+      .pdf-header-print,
+      .pdf-footer-print {
+        page-break-inside: avoid;
+      }
+
+      footer {
+        display: none !important;
+      }
+
       .sticky-header {
         display: flex !important;
         flex-direction: row !important;
@@ -613,12 +801,15 @@
         background: #f5f7fa !important;
         color: #222 !important;
       }
+
       .sticky-header:not(:first-of-type) {
         display: none !important;
       }
+
       .slider-container img.baseline-image {
         display: none !important;
       }
+
       .slider-container img.after-image {
         position: static !important;
         clip-path: none !important;
@@ -628,35 +819,49 @@
         z-index: auto !important;
         opacity: 1 !important;
       }
+
       .slider-container {
         position: static !important;
         box-shadow: none !important;
         background: none !important;
       }
-      .slider-bar, .slider-handle {
+
+      .slider-bar,
+      .slider-handle {
         display: none !important;
       }
+
       .pdf-summary-table {
         border: 1px solid #ccc;
         margin-bottom: 24px;
         font-size: 1em;
         width: 100%;
       }
-      .pdf-summary-table th, .pdf-summary-table td {
+
+      .pdf-summary-table th,
+      .pdf-summary-table td {
         border: 1px solid #ccc;
         padding: 8px 12px;
         text-align: left;
       }
+
       .pdf-summary-table th {
         background: #f5f7fa;
         font-weight: bold;
       }
     }
+
     @media screen {
-      .pdf-header-print, .pdf-footer-print { display: none !important; }
+
+      .pdf-header-print,
+      .pdf-footer-print {
+        display: none !important;
+      }
     }
+
     /* --- UI/UX Improvements --- */
-    button, select {
+    button,
+    select {
       box-shadow: 0 1px 6px #0001;
       transition: background 0.2s, box-shadow 0.2s, border 0.2s;
       border-radius: 6px;
@@ -665,15 +870,21 @@
       color: var(--text-color);
       font-weight: 500;
     }
-    button:hover, select:hover {
+
+    button:hover,
+    select:hover {
       background: var(--hover-color);
       box-shadow: 0 4px 16px #0002;
       border-color: var(--accent-color);
     }
-    button[title], select[title] {
+
+    button[title],
+    select[title] {
       position: relative;
     }
-    button[title]:hover:after, select[title]:hover:after {
+
+    button[title]:hover:after,
+    select[title]:hover:after {
       content: attr(title);
       position: absolute;
       left: 50%;
@@ -688,11 +899,15 @@
       z-index: 1000;
       pointer-events: none;
     }
+
     /* --- Loading Spinner Overlay --- */
     #loadingOverlay {
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(255,255,255,0.7);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.7);
       z-index: 2000;
       display: flex;
       align-items: center;
@@ -701,10 +916,12 @@
       opacity: 0;
       pointer-events: none;
     }
+
     #loadingOverlay.active {
       opacity: 1;
       pointer-events: all;
     }
+
     .spinner {
       border: 6px solid #eee;
       border-top: 6px solid #ff3333;
@@ -713,10 +930,17 @@
       height: 48px;
       animation: spin 1s linear infinite;
     }
+
     @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
     }
+
     /* --- Animated Transitions --- */
     .fade-slide {
       opacity: 0;
@@ -724,26 +948,32 @@
       transition: opacity 0.4s, transform 0.4s;
       will-change: opacity, transform;
     }
+
     .fade-slide.active {
       opacity: 1;
       transform: translateY(0);
     }
+
     .slider-bar {
       position: absolute;
       top: 0;
       bottom: 0;
       width: 6px;
-      background: rgba(255,51,51,0.7);
+      background: rgba(255, 51, 51, 0.7);
       z-index: 5;
       left: 95%;
       border-radius: 3px;
       pointer-events: none;
     }
+
     /* --- Settings Popup --- */
     .settings-modal {
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.25);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.25);
       z-index: 3000;
       display: flex;
       align-items: center;
@@ -752,10 +982,12 @@
       opacity: 0;
       transition: opacity 0.2s;
     }
+
     .settings-modal.active {
       visibility: visible;
       opacity: 1;
     }
+
     .settings-modal-content {
       background: var(--panel-color);
       border-radius: 12px;
@@ -768,10 +1000,12 @@
       border: 1.5px solid var(--border-color);
       position: relative;
     }
+
     .settings-modal-content label {
       margin-right: 10px;
       font-weight: 500;
     }
+
     .settings-modal-content input[type="color"] {
       border: none;
       width: 32px;
@@ -781,12 +1015,14 @@
       background: none;
       cursor: pointer;
     }
+
     .settings-modal-content input[type="number"] {
       width: 60px;
       padding: 4px 6px;
       border-radius: 4px;
       border: 1px solid var(--border-color);
     }
+
     .settings-modal-close {
       position: absolute;
       top: 10px;
@@ -797,6 +1033,7 @@
       border: none;
       cursor: pointer;
     }
+
     .settings-icon-btn {
       background: none !important;
       border: none !important;
@@ -809,11 +1046,14 @@
       cursor: pointer;
       transition: background 0.15s, box-shadow 0.15s;
     }
-    .settings-icon-btn:hover, .settings-icon-btn:focus {
+
+    .settings-icon-btn:hover,
+    .settings-icon-btn:focus {
       background: var(--hover-color) !important;
       box-shadow: 0 2px 8px #0001 !important;
       outline: none;
     }
+
     .darkmode-icon-btn {
       background: none !important;
       border: none !important;
@@ -825,11 +1065,14 @@
       cursor: pointer;
       transition: background 0.15s, box-shadow 0.15s;
     }
-    .darkmode-icon-btn:hover, .darkmode-icon-btn:focus {
+
+    .darkmode-icon-btn:hover,
+    .darkmode-icon-btn:focus {
       background: var(--hover-color) !important;
       box-shadow: 0 2px 8px #0001 !important;
       outline: none;
     }
+
     .reset-icon-btn {
       background: none !important;
       border: none !important;
@@ -841,20 +1084,26 @@
       cursor: pointer;
       transition: background 0.15s, box-shadow 0.15s;
     }
-    .reset-icon-btn:hover, .reset-icon-btn:focus {
+
+    .reset-icon-btn:hover,
+    .reset-icon-btn:focus {
       background: var(--hover-color) !important;
       box-shadow: 0 2px 8px #0001 !important;
       outline: none;
     }
+
     /* Performance: .hidden class for table rows */
-    #summaryTable tbody tr.hidden { display: none !important; }
+    #summaryTable tbody tr.hidden {
+      display: none !important;
+    }
+
     #welcomeSection {
       max-width: 640px;
       margin: 40px auto 0 auto;
       padding: 36px 36px 28px 36px;
       border-radius: 18px;
       box-shadow: 0 6px 32px #0002;
-      background: linear-gradient(120deg,#f8fbff 60%,#eaf3ff 100%);
+      background: linear-gradient(120deg, #f8fbff 60%, #eaf3ff 100%);
       color: #222;
       text-align: center;
       display: block;
@@ -862,12 +1111,184 @@
       letter-spacing: 0.01em;
       transition: background 0.3s, color 0.3s;
     }
+
     body.dark-mode #welcomeSection {
-      background: linear-gradient(120deg,#23272e 60%,#23272e 100%);
-      color: #f5f5f5;
-      box-shadow: 0 6px 32px #0008;
+      background: linear-gradient(120deg, #181c22 60%, #23272e 100%) !important;
+      color: #f5f5f5 !important;
+      border-color: #222 !important;
+      box-shadow: 0 8px 40px #000c !important;
+    }
+
+    body.dark-mode #welcomeSection h2,
+    body.dark-mode #welcomeSection h3,
+    body.dark-mode #welcomeSection label,
+    body.dark-mode #welcomeSection b,
+    body.dark-mode #welcomeSection span,
+    body.dark-mode #welcomeSection ol,
+    body.dark-mode #welcomeSection code {
+      color: #f5f5f5 !important;
+    }
+
+    body.dark-mode #welcomeSection ol li {
+      color: #d0d6e0 !important;
+    }
+
+    body.dark-mode #welcomeSection .info-box,
+    body.dark-mode #welcomeSection div[style*='background:#f5f7fa'] {
+      background: #232f3e !important;
+      color: #aee2ff !important;
+      border-color: #2a3b4d !important;
+      box-shadow: 0 2px 12px #007bff22 !important;
+    }
+
+    body.dark-mode #welcomeSection select,
+    body.dark-mode #welcomeSection button {
+      background: #23272e !important;
+      color: #f5f5f5 !important;
+      border-color: #444 !important;
+    }
+
+    body.dark-mode #welcomeSection button#useSampleBtn {
+      background: #007b5a !important;
+      border-color: #007b5a !important;
+      color: #fff !important;
+    }
+
+    body.dark-mode #welcomeSection button#loadJsonBtn {
+      background: #0056b3 !important;
+      border-color: #0056b3 !important;
+      color: #fff !important;
+    }
+
+    body.dark-mode #welcomeSection code {
+      background: #232f3e !important;
+      color: #aee2ff !important;
+    }
+
+    body.dark-mode #welcomeSection .icon {
+      filter: brightness(1.5) drop-shadow(0 0 2px #fff8);
+    }
+
+    body.dark-mode #welcomeSection hr,
+    body.dark-mode #welcomeSection .divider {
+      border-color: #333 !important;
+      background: #333 !important;
+    }
+
+    @media (max-width: 900px) {
+      #welcomeSection>div {
+        flex-direction: column !important;
+      }
+
+      #welcomeSection>div>div {
+        border-right: none !important;
+        border-bottom: 1.5px solid #e3e8f0;
+      }
+
+      body.dark-mode #welcomeSection>div>div {
+        border-bottom: 1.5px solid #333 !important;
+      }
+    }
+
+    body.dark-mode #welcomeSection,
+    body.dark-mode #welcomeSection * {
+      color: #f5f5f5 !important;
+      text-shadow: none !important;
+    }
+
+    body.dark-mode #welcomeSection {
+      background: linear-gradient(120deg, #181c22 60%, #23272e 100%) !important;
+      border-color: #222 !important;
+      box-shadow: 0 8px 40px #000c !important;
+    }
+
+    body.dark-mode #welcomeSection>div>div:first-child {
+      background: linear-gradient(120deg, #23272e 60%, #181c22 100%) !important;
+      border-right: 1.5px solid #333 !important;
+    }
+
+    body.dark-mode #welcomeSection>div>div:last-child {
+      background: #181c22 !important;
+      box-shadow: -2px 0 16px #0004;
+    }
+
+    body.dark-mode #welcomeSection .info-box,
+    body.dark-mode #welcomeSection div[style*='background:#f5f7fa'] {
+      background: #232f3e !important;
+      color: #aee2ff !important;
+      border-color: #2a3b4d !important;
+      box-shadow: 0 2px 12px #007bff22 !important;
+    }
+
+    body.dark-mode #welcomeSection code {
+      background: #232f3e !important;
+      color: #aee2ff !important;
+    }
+
+    body.dark-mode #welcomeSection button,
+    body.dark-mode #welcomeSection select {
+      background: #23272e !important;
+      color: #f5f5f5 !important;
+      border-color: #444 !important;
+    }
+
+    body.dark-mode #welcomeSection button#useSampleBtn {
+      background: #007b5a !important;
+      border-color: #007b5a !important;
+      color: #fff !important;
+    }
+
+    body.dark-mode #welcomeSection button#loadJsonBtn {
+      background: #0056b3 !important;
+      border-color: #0056b3 !important;
+      color: #fff !important;
+    }
+
+    body.dark-mode #welcomeSection .icon {
+      filter: brightness(1.5) drop-shadow(0 0 2px #fff8);
+    }
+
+    body.dark-mode #welcomeSection hr,
+    body.dark-mode #welcomeSection .divider {
+      border-color: #333 !important;
+      background: #333 !important;
+    }
+
+    @media (max-width: 900px) {
+      #welcomeSection>div {
+        flex-direction: column !important;
+      }
+
+      #welcomeSection>div>div {
+        border-right: none !important;
+        border-bottom: 1.5px solid #e3e8f0;
+      }
+
+      body.dark-mode #welcomeSection>div>div {
+        border-bottom: 1.5px solid #333 !important;
+      }
+    }
+
+    #welcomeSection {
+      background: #fff !important;
+    }
+
+    #welcomeSection>div>div:last-child {
+      background: #fff !important;
+    }
+
+    /* Keep left column gradient for visual interest */
+    #welcomeSection>div>div:first-child {
+      background: linear-gradient(120deg, #f8fbff 60%, #eaf3ff 100%) !important;
     }
   </style>
+  <script>
+    // Set dark mode class before rendering to prevent flash
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.documentElement.classList.add('dark-mode');
+      document.body && document.body.classList.add('dark-mode');
+    }
+  </script>
 </head>
 
 <body>
@@ -875,7 +1296,8 @@
     <div class="sticky-header">
       <div style="display: flex; align-items: center; gap: 8px;">
         <img src="favicon.ico" alt="Logo" width="20" height="20" />
-        <h1>LambdaTest SmartUI Reporter</h1>
+        <h1 style="cursor:pointer;transition:color 0.2s;" id="headerTitle" title="Refresh">LambdaTest SmartUI Reporter
+        </h1>
       </div>
       <div>
         <button id="toggleDarkModeBtn" onclick="toggleDarkMode()" title="Theme" class="darkmode-icon-btn">🌙</button>
@@ -885,29 +1307,64 @@
       </div>
     </div>
 
-    <section id="welcomeSection" style="max-width:900px;margin:40px auto 0 auto;padding:36px 36px 28px 36px;border-radius:18px;box-shadow:0 6px 32px #0002;background:linear-gradient(120deg,#f8fbff 60%,#eaf3ff 100%);color:#222;text-align:center;display:block;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;letter-spacing:0.01em;">
-      <h2 style="margin-top:0;margin-bottom:18px;color:#007bff;font-size:2em;font-weight:700;letter-spacing:0.01em;">Your visual test report is generated dynamically!</h2>
-      <ol style="text-align:left;margin:24px 0 24px 0;padding-left:28px;font-size:1.13em;line-height:1.7;">
-        <li style="margin-bottom:14px;">Run your SmartUI test command in your terminal:<br>
-          <code style="display:block;background:#f5f7fa;padding:10px 14px;border-radius:8px;margin:10px 0 0 0;font-size:1.04em;color:#d6336c;font-family:'Fira Mono', 'Consolas', 'Menlo', monospace;box-shadow:0 2px 8px #0001;">smartui capture urls.json --config smartui-web.json --fetch-results results.json</code>
-        </li>
-        <li style="margin-bottom:14px;">Open <b style="color:#007bff;">LTSmartUIReporter.html</b> in your favorite browser.</li>
-        <li style="margin-bottom:14px;">Click <b style="color:#007bff;">Upload JSON</b> and select the SmartUI JSON response <b style="color:#d6336c;">results.json</b>.
-          <div style="margin-top:12px;">
-            <label for="jsonFileSelect" style="font-weight:600;">Select JSON file:</label>
-            <select id="jsonFileSelect" style="margin-left:10px;">
+    <section id="welcomeSection"
+      style="max-width:980px;margin:48px auto 0 auto;padding:0;border-radius:24px;box-shadow:0 8px 40px #0002;background:#fff;color:#222;text-align:left;display:block;font-family:'Manrope','Segoe UI',Tahoma,Geneva,Verdana,sans-serif;letter-spacing:0.01em;border:1.5px solid #e3e8f0;overflow:hidden;">
+      <div style="display:flex;flex-wrap:wrap;align-items:stretch;">
+        <!-- Left: Instructions -->
+        <div
+          style="flex:1 1 340px;min-width:320px;padding:44px 40px 36px 44px;background:linear-gradient(120deg,#f8fbff 60%,#eaf3ff 100%);border-right:1.5px solid #e3e8f0;display:flex;flex-direction:column;justify-content:center;">
+          <h2
+            style="margin-top:0;margin-bottom:18px;color:#007bff;font-size:2.2em;font-weight:800;letter-spacing:0.01em;line-height:1.1;display:flex;align-items:center;gap:12px;">
+            <span style='font-size:1.2em;'>🧪</span> Instant Visual Test Insights!
+          </h2>
+          <ol style="margin:0 0 0 18px;padding:0 0 0 10px;font-size:1.13em;line-height:1.7;">
+            <li style="margin-bottom:14px;">Run your SmartUI test command in your terminal:<br>
+              <code
+                style="display:block;background:#f5f7fa;padding:10px 14px;border-radius:8px;margin:10px 0 0 0;font-size:1.04em;color:#d6336c;font-family:'Fira Mono', 'Consolas', 'Menlo', monospace;box-shadow:0 2px 8px #0001;">smartui capture urls.json --config smartui-web.json --fetch-results results.json</code>
+            </li>
+            <li style="margin-bottom:14px;">Open <b style="color:#007bff;">LTSmartUIReporter.html</b> in your favorite
+              browser.</li>
+            <li style="margin-bottom:14px;">Click <b style="color:#007bff;">Upload JSON</b> and select the SmartUI JSON
+              response <b style="color:#d6336c;">results.json</b>.</li>
+          </ol>
+          <div style="margin-top:32px;color:#888;font-size:1.04em;">This message will disappear once you upload your
+            results.</div>
+        </div>
+        <!-- Right: File selection and info -->
+        <div
+          style="flex:1 1 340px;min-width:320px;padding:44px 40px 36px 40px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;background:#fff;">
+          <h3
+            style="margin:0 0 16px 0;color:#222;font-size:1.25em;font-weight:700;display:flex;align-items:center;gap:8px;">
+            <span style='font-size:1.2em;'>📂</span> Select a sample JSON File
+          </h3>
+          <span>If you do not have a JSON file, use our sample file.</span>
+
+          <div style="display:flex;align-items:center;gap:10px;width:100%;margin-bottom:10px;">
+            <select id="jsonFileSelect"
+              style="flex:1 1 180px;padding:8px 12px;border-radius:6px;border:1.5px solid #c3d0e8;background:#f8fbff;color:#222;font-size:1em;font-family:'Manrope','Segoe UI',sans-serif;">
               <option value="LTResults.json">LTResults.json</option>
               <option value="LTSmartIgnoreResults.json">LTSmartIgnoreResults.json</option>
             </select>
-            <button id="loadJsonBtn" style="margin-left:10px;padding:6px 16px;border-radius:5px;border:1px solid #007bff;background:#007bff;color:#fff;font-weight:600;cursor:pointer;">Load</button>
+            <button id="loadJsonBtn"
+              style="padding:8px 22px;border-radius:6px;border:1.5px solid #007bff;background:#007bff;color:#fff;font-weight:700;font-size:1em;cursor:pointer;box-shadow:0 2px 8px #007bff22;transition:background 0.2s,border 0.2s;">Load</button>
           </div>
-        </li>
-      </ol>
-      <div style="background:#f5f7fa;padding:12px 16px;border-radius:8px;margin-bottom:18px;font-size:1.04em;color:#007bff;">
-        <b>What is Smart Ignore?</b><br>
-        LambdaTest Smart Ignore automatically masks out harmless layout shifts and pixel displacements, so you only see the real content changes in your visual regression reports.
+          <div
+            style="background:#f5f7fa;padding:18px 20px;border-radius:10px;margin-bottom:0;font-size:1.08em;color:#007bff;border:1px solid #e3e8f0;max-width:100%;box-shadow:0 2px 12px #007bff11;"
+            class="info-box">
+            <b style="display:flex;align-items:center;gap:6px;"><span style='font-size:1.1em;'>💡</span> What is
+              LambdaTest?</b><br>
+            LambdaTest is an online platform that helps developers and testers check how their websites and apps look
+            and work on different browsers, operating systems, and devices.
+
+            <br><br>
+
+            <b style="display:flex;align-items:center;gap:6px;"><span style='font-size:1.1em;'>💡</span> What is Smart
+              Ignore?</b><br>
+            LambdaTest Smart Ignore hides layout shifts and pixel displacements that don't affect actual content. Focus
+            only on real visual changes in your UI.
+          </div>
+        </div>
       </div>
-      <div style="margin-top:22px;color:#888;font-size:1.04em;">This message will disappear once you upload your results.</div>
     </section>
 
     <div id="loadingOverlay">
@@ -927,15 +1384,21 @@
         <label>Resolution:
           <select id="dashboardViewportSelect"></select>
         </label>
-        <button id="resetFiltersBtn" title="Reset" class="reset-icon-btn" aria-label="Reset filters" style="margin-left:8px;vertical-align:middle;display:inline-flex;align-items:center;justify-content:center;">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;">
-            <path d="M10 3a7 7 0 1 1-6.32 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M4 3v4h4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <button id="resetFiltersBtn" title="Reset" class="reset-icon-btn" aria-label="Reset filters"
+          style="margin-left:8px;vertical-align:middle;display:inline-flex;align-items:center;justify-content:center;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+            style="display:block;">
+            <path d="M10 3a7 7 0 1 1-6.32 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <path d="M4 3v4h4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
+              stroke-linejoin="round" />
           </svg>
         </button>
-      
-      <button id="exportCsvBtn" disabled style="float: right; margin-left: 16px; padding: 7px 18px; border-radius: 7px; border: 1.5px solid var(--border-color); background: var(--panel-color); color: var(--text-color); font-weight: 500; font-size: 1em; cursor: pointer; box-shadow: 0 2px 8px #0001; opacity:0.6;">💾 Export CSV</button>
-    </div>
+
+        <button id="exportCsvBtn" disabled
+          style="float: right; margin-left: 16px; padding: 7px 18px; border-radius: 7px; border: 1.5px solid var(--border-color); background: var(--panel-color); color: var(--text-color); font-weight: 500; font-size: 1em; cursor: pointer; box-shadow: 0 2px 8px #0001; opacity:0.6;">💾
+          Export CSV</button>
+      </div>
       <table class="summary-table" id="summaryTable">
         <thead>
           <tr>
@@ -968,7 +1431,9 @@
             <option value="captured_diff">Captured Diff</option>
           </select>
         </label>
-        <button onclick="exportAllPDF()" title="PDF Export" style="float: right; margin-left: 16px; padding: 7px 18px; border-radius: 7px; border: 1.5px solid var(--border-color); background: var(--panel-color); color: var(--text-color); font-weight: 500; font-size: 1em; cursor: pointer; box-shadow: 0 2px 8px #0001;">🧾 PDF Export All Views</button>
+        <button onclick="exportAllPDF()" title="PDF Export"
+          style="float: right; margin-left: 16px; padding: 7px 18px; border-radius: 7px; border: 1.5px solid var(--border-color); background: var(--panel-color); color: var(--text-color); font-weight: 500; font-size: 1em; cursor: pointer; box-shadow: 0 2px 8px #0001;">🧾
+          PDF Export All Views</button>
       </div>
       <div id="viewportContentContainer"></div>
     </div>
@@ -978,14 +1443,15 @@
 
   <footer>
     <span class="footer-left">LambdaTest SmartUI Report Viewer - v1.1.1</span>
-    <span class="footer-right">Creator. Builder. Curious? Let's talk →<a href="https://www.linkedin.com/in/vijopv83" target="_blank" rel="noopener noreferrer">linkedin.com/in/vijopv83</a>
+    <span class="footer-right">Creator. Builder. Curious? Let's talk →<a href="https://www.linkedin.com/in/vijopv83"
+        target="_blank" rel="noopener noreferrer">linkedin.com/in/vijopv83</a>
     </span>
   </footer>
-  
+
   <script defer>
     // Prevent error if renderDashboardCards is not defined
     if (typeof window.renderDashboardCards !== 'function') {
-      window.renderDashboardCards = function(){};
+      window.renderDashboardCards = function () { };
     }
 
     const smartUIData = { value: null };
@@ -1111,7 +1577,7 @@
     }
     // Patch renderImages to use setupLazyLoading and clean up old images
     const origRenderImages = window.renderImages || renderImages;
-    window.renderImages = function(page, browser, viewport) {
+    window.renderImages = function (page, browser, viewport) {
       const container = document.getElementById('viewportContentContainer');
       // Clean up old images
       Array.from(container.querySelectorAll('img')).forEach(img => { img.src = ''; });
@@ -1120,7 +1586,7 @@
     };
     // Patch exportAllPDF to only prefetch images for current export, and clean up after
     const origExportAllPDF = window.exportAllPDF || exportAllPDF;
-    window.exportAllPDF = function() {
+    window.exportAllPDF = function () {
       const container = document.getElementById('viewportContentContainer');
       // Clean up old images
       Array.from(container.querySelectorAll('img')).forEach(img => { img.src = ''; });
@@ -1396,7 +1862,7 @@
     // Debounce filter calls for performance
     let filterTimeout = null;
     ["dashboardPageSelect", "dashboardBrowserSelect", "dashboardViewportSelect"].forEach(id => {
-      document.getElementById(id).addEventListener("change", function() {
+      document.getElementById(id).addEventListener("change", function () {
         if (filterTimeout) clearTimeout(filterTimeout);
         filterTimeout = setTimeout(filterSummaryTable, 60);
       });
@@ -1431,7 +1897,7 @@
       if (section) section.style.display = 'block';
     }
     // On load, show welcome section if no data
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       if (!smartUIData.value) {
         showWelcomeSection();
         // Hide dashboard/tables until data is loaded
@@ -1790,15 +2256,17 @@
     }
     // Patch toggleDarkMode to update icon
     const origToggleDarkMode = window.toggleDarkMode;
-    window.toggleDarkMode = function() {
+    window.toggleDarkMode = function () {
       document.body.classList.toggle('dark-mode');
-      updateDarkModeIcon();
+      document.documentElement.classList.toggle('dark-mode');
+      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+      updateDarkModeIcon && updateDarkModeIcon();
     };
     // On load, set correct icon
     document.addEventListener('DOMContentLoaded', updateDarkModeIcon);
 
     // Ensure buildInfo always exists after sticky-header
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       let buildInfo = document.getElementById('buildInfo');
       if (!buildInfo) {
         const stickyHeader = document.querySelector('.sticky-header');
@@ -1814,7 +2282,7 @@
     });
 
     // Event delegation for summary table row clicks
-    document.getElementById('summaryTable').addEventListener('click', function(e) {
+    document.getElementById('summaryTable').addEventListener('click', function (e) {
       const link = e.target.closest('a[data-detail]');
       if (link) {
         const [page, browser, viewport] = link.getAttribute('data-detail').split('|');
@@ -1824,7 +2292,7 @@
     });
 
     // Export CSV logic
-    document.getElementById('exportCsvBtn').addEventListener('click', function() {
+    document.getElementById('exportCsvBtn').addEventListener('click', function () {
       // Only export visible rows, and include all columns (Page Name, Browser, Resolution, Mismatch %, Status)
       const rows = Array.from(document.querySelectorAll('#summaryTable tbody tr'));
       const visibleRows = rows.filter(row => row.style.display !== 'none');
@@ -1839,7 +2307,7 @@
         if (smartUIData.value && smartUIData.value.build && smartUIData.value.build.build_name) {
           buildName = 'SmartUI Reporter ' + smartUIData.value.build.build_name;
         }
-      } catch (e) {}
+      } catch (e) { }
       const blob = new Blob([csv.join('\r\n')], { type: 'text/csv' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
@@ -1860,10 +2328,10 @@
     thumbPopupSpinner.style.height = '36px';
     thumbPopupSpinner.style.margin = '32px auto';
 
-    (function() {
+    (function () {
       const popup = document.getElementById('thumbPopup');
       let popupImg = null;
-      document.addEventListener('mouseover', function(e) {
+      document.addEventListener('mouseover', function (e) {
         const link = e.target.closest('.summary-page-link');
         if (link) {
           if (!popupImg) {
@@ -1881,18 +2349,18 @@
           popup.innerHTML = '';
           popup.appendChild(thumbPopupSpinner);
           popup.style.display = 'block';
-          popupImg.onload = function() {
+          popupImg.onload = function () {
             if (popup.contains(thumbPopupSpinner)) popup.removeChild(thumbPopupSpinner);
             popup.appendChild(popupImg);
           };
-          popupImg.onerror = function() {
+          popupImg.onerror = function () {
             if (popup.contains(thumbPopupSpinner)) popup.removeChild(thumbPopupSpinner);
             popup.innerHTML = '<div style="color:red;padding:16px;">Failed to load image</div>';
           };
           popupImg.src = link.getAttribute('data-thumb');
         }
       });
-      document.addEventListener('mousemove', function(e) {
+      document.addEventListener('mousemove', function (e) {
         if (popup.style.display === 'block' && (popupImg || popup.contains(thumbPopupSpinner))) {
           const pad = 12;
           let width = window.innerWidth * 0.8;
@@ -1909,7 +2377,7 @@
           popup.style.top = top + 'px';
         }
       });
-      document.addEventListener('mouseout', function(e) {
+      document.addEventListener('mouseout', function (e) {
         if (e.target.classList && e.target.classList.contains('summary-page-link')) {
           popup.style.display = 'none';
         }
@@ -1917,10 +2385,10 @@
     })();
 
     // Reset filters button logic
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const resetBtn = document.getElementById('resetFiltersBtn');
       if (resetBtn) {
-        resetBtn.addEventListener('click', function() {
+        resetBtn.addEventListener('click', function () {
           const pageSelect = document.getElementById('dashboardPageSelect');
           const browserSelect = document.getElementById('dashboardBrowserSelect');
           const viewportSelect = document.getElementById('dashboardViewportSelect');
@@ -1933,10 +2401,10 @@
     });
   </script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const loadJsonBtn = document.getElementById('loadJsonBtn');
       if (loadJsonBtn) {
-        loadJsonBtn.addEventListener('click', function() {
+        loadJsonBtn.addEventListener('click', function () {
           const fileName = document.getElementById('jsonFileSelect').value;
           fetch(fileName)
             .then(response => {
@@ -1957,7 +2425,53 @@
             });
         });
       }
+      // Use Sample JSON button
+      const useSampleBtn = document.getElementById('useSampleBtn');
+      if (useSampleBtn) {
+        useSampleBtn.addEventListener('click', function () {
+          fetch('LTResults.json')
+            .then(response => {
+              if (!response.ok) throw new Error('Sample file not found');
+              return response.text();
+            })
+            .then(content => {
+              const fakeFile = {
+                text: () => Promise.resolve(content),
+                lastModified: Date.now(),
+                name: 'LTResults.json'
+              };
+              handleJsonUpload(fakeFile);
+            })
+            .catch(err => {
+              alert('Could not load sample file: ' + err.message);
+            });
+        });
+      }
+      // Header click refresh
+      const headerTitle = document.getElementById('headerTitle');
+      if (headerTitle) {
+        headerTitle.addEventListener('click', function () {
+          window.location.reload();
+        });
+      }
     });
+  </script>
+  <script>
+    // Restore dark mode from localStorage
+    document.addEventListener('DOMContentLoaded', function () {
+      if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+      }
+      updateDarkModeIcon && updateDarkModeIcon();
+    });
+    // Save dark mode preference on toggle
+    const origToggleDarkMode = window.toggleDarkMode;
+    window.toggleDarkMode = function () {
+      document.body.classList.toggle('dark-mode');
+      document.documentElement.classList.toggle('dark-mode');
+      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+      updateDarkModeIcon && updateDarkModeIcon();
+    };
   </script>
 </body>
 
