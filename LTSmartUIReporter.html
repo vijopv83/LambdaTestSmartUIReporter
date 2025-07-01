@@ -1061,19 +1061,7 @@
         </div>
         <div class="image-box">
           <span class="label">(${resolution}) Captured</span>
-          <div class="slider-container" id="slider-${page}-${browser}-${viewport}">
-            <div class="slider-bar" id="bar-${page}-${browser}-${viewport}"></div>
-            <img src="${s.baseline_image}" class="baseline-image" loading="lazy" />
-            <img src="${s.captured_image}" class="after-image" id="after-${page}-${browser}-${viewport}" style="clip-path: inset(0 25% 0 0);" loading="lazy" />
-            <div class="slider-handle" id="handle-${page}-${browser}-${viewport}" style="left:95%;" tabindex="0" aria-label="Image comparison slider" role="slider" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-              <div class="grip">
-                <div class="grip-dot"></div>
-                <div class="grip-dot"></div>
-                <div class="grip-dot"></div>
-                <div class="grip-dot"></div>
-              </div>
-            </div>
-          </div>
+          <img src="${s.captured_image}" loading="lazy" />
         </div>
         <div class="image-box">
           <span class="label">(${resolution}) Diff: 
@@ -1165,19 +1153,7 @@
                 </div>
                 <div class="image-box">
                   <span class="label">(${resolution}) Captured</span>
-                  <div class="slider-container" id="slider-${currentPage}-${browser}-${viewport}">
-                    <div class="slider-bar" id="bar-${currentPage}-${browser}-${viewport}"></div>
-                    <img src="${s.baseline_image}" class="baseline-image" loading="lazy" />
-                    <img src="${s.captured_image}" class="after-image" id="after-${currentPage}-${browser}-${viewport}" style="clip-path: inset(0 25% 0 0);" loading="lazy" />
-                    <div class="slider-handle" id="handle-${currentPage}-${browser}-${viewport}" style="left:95%; background: red;" tabindex="0" aria-label="Image comparison slider" role="slider" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                      <div class="grip">
-                        <div class="grip-dot"></div>
-                        <div class="grip-dot"></div>
-                        <div class="grip-dot"></div>
-                        <div class="grip-dot"></div>
-                      </div>
-                    </div>
-                  </div>
+                  <img src="${s.captured_image}" loading="lazy" />
                 </div>
                 <div class="image-box">
                   <span class="label">(${resolution}) Diff: 
