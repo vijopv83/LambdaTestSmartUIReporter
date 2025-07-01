@@ -1,0 +1,225 @@
+{
+  "screenshots": {
+    "Default": [
+      {
+        "screenshot_name": "Default",
+        "captured_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/base-screenshots/Default-chrome-1280.png",
+        "baseline_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/af7265be-fe3d-4869-990b-224957316c50/base-screenshots/Default-chrome-1280.png",
+        "browser_name": "chrome",
+        "viewport": "1280",
+        "mismatch_percentage": 2.28,
+        "status": "Changes found",
+        "captured_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/e32945c1-6f5c-4dcb-bfa7-e0de86f19594.png",
+        "baseline_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/a9d2f384-952e-46dd-bc3d-190f87dd4009.png"
+      },
+      {
+        "screenshot_name": "Default",
+        "captured_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/base-screenshots/Default-edge-1440.png",
+        "baseline_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/af7265be-fe3d-4869-990b-224957316c50/base-screenshots/Default-edge-1440.png",
+        "browser_name": "edge",
+        "viewport": "1440",
+        "mismatch_percentage": 2.03,
+        "status": "Changes found",
+        "captured_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/905e4bbf-aded-4f07-8b21-c4deab3b3f56.png",
+        "baseline_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/cde19cea-d93c-413c-96e5-86a68e9a320f.png"
+      },
+      {
+        "screenshot_name": "Default",
+        "captured_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/base-screenshots/Default-firefox-1280.png",
+        "baseline_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/af7265be-fe3d-4869-990b-224957316c50/base-screenshots/Default-firefox-1280.png",
+        "browser_name": "firefox",
+        "viewport": "1280",
+        "mismatch_percentage": 2.31,
+        "status": "Changes found",
+        "captured_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/f98d0a5a-228a-482a-aee8-0b18ba736ac8.png",
+        "baseline_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/1f070e0e-31c0-4044-b94e-956ffd50c7fb.png"
+      },
+      {
+        "screenshot_name": "Default",
+        "captured_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/base-screenshots/Default-edge-2560.png",
+        "baseline_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/af7265be-fe3d-4869-990b-224957316c50/base-screenshots/Default-edge-2560.png",
+        "browser_name": "edge",
+        "viewport": "2560",
+        "mismatch_percentage": 1.15,
+        "status": "Changes found",
+        "captured_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/7644f346-c031-4695-8ec1-956eb2b47ade.png",
+        "baseline_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/db844738-99f3-4070-97d6-fadf80de59bb.png"
+      },
+      {
+        "screenshot_name": "Default",
+        "captured_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/base-screenshots/Default-edge-1920.png",
+        "baseline_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/af7265be-fe3d-4869-990b-224957316c50/base-screenshots/Default-edge-1920.png",
+        "browser_name": "edge",
+        "viewport": "1920",
+        "mismatch_percentage": 1.53,
+        "status": "Changes found",
+        "captured_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/a8027386-1b5d-451c-84be-1d97fa05cd08.png",
+        "baseline_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/5f5bdd04-4aa6-4ecd-8aed-8700b4912b1b.png"
+      },
+      {
+        "screenshot_name": "Default",
+        "captured_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/base-screenshots/Default-chrome-2560.png",
+        "baseline_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/af7265be-fe3d-4869-990b-224957316c50/base-screenshots/Default-chrome-2560.png",
+        "browser_name": "chrome",
+        "viewport": "2560",
+        "mismatch_percentage": 1.15,
+        "status": "Changes found",
+        "captured_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/a1a70f8f-8fb9-495b-ad17-140a34bf1784.png",
+        "baseline_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/c91ec5d3-74aa-40ef-9c2c-878d1b092747.png"
+      },
+      {
+        "screenshot_name": "Default",
+        "captured_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/base-screenshots/Default-webkit-1440.png",
+        "baseline_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/af7265be-fe3d-4869-990b-224957316c50/base-screenshots/Default-webkit-1440.png",
+        "browser_name": "webkit",
+        "viewport": "1440",
+        "mismatch_percentage": 1.99,
+        "status": "Changes found",
+        "captured_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/2af44ffc-25da-4594-8da3-69af84698973.png",
+        "baseline_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/b19d1758-7ee4-4d3d-8b87-901c70461c75.png"
+      },
+      {
+        "screenshot_name": "Default",
+        "captured_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/base-screenshots/Default-chrome-1440.png",
+        "baseline_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/af7265be-fe3d-4869-990b-224957316c50/base-screenshots/Default-chrome-1440.png",
+        "browser_name": "chrome",
+        "viewport": "1440",
+        "mismatch_percentage": 2.03,
+        "status": "Changes found",
+        "captured_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/287b6ea4-5450-4fd6-a665-a79bfadfbdff.png",
+        "baseline_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/898deae1-1624-40ad-96df-f5ff85945915.png"
+      },
+      {
+        "screenshot_name": "Default",
+        "captured_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/base-screenshots/Default-firefox-1440.png",
+        "baseline_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/af7265be-fe3d-4869-990b-224957316c50/base-screenshots/Default-firefox-1440.png",
+        "browser_name": "firefox",
+        "viewport": "1440",
+        "mismatch_percentage": 2.06,
+        "status": "Changes found",
+        "captured_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/0ebad838-619c-4360-8e9e-e16973b3d82d.png",
+        "baseline_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/0dbd0bfd-42a1-4c2f-b949-2d70e25e4b21.png"
+      },
+      {
+        "screenshot_name": "Default",
+        "captured_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/base-screenshots/Default-edge-1280.png",
+        "baseline_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/af7265be-fe3d-4869-990b-224957316c50/base-screenshots/Default-edge-1280.png",
+        "browser_name": "edge",
+        "viewport": "1280",
+        "mismatch_percentage": 2.29,
+        "status": "Changes found",
+        "captured_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/5cc91161-2f47-4880-8b28-a9ec550261c6.png",
+        "baseline_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/a8ed0f7b-565c-465e-8c2b-65b467df84c9.png"
+      },
+      {
+        "screenshot_name": "Default",
+        "captured_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/base-screenshots/Default-webkit-1280.png",
+        "baseline_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/af7265be-fe3d-4869-990b-224957316c50/base-screenshots/Default-webkit-1280.png",
+        "browser_name": "webkit",
+        "viewport": "1280",
+        "mismatch_percentage": 2.24,
+        "status": "Changes found",
+        "captured_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/b53b0b74-8d80-4625-a4f0-445bbc58f9f9.png",
+        "baseline_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/bf5a2335-5404-4fb6-826f-a1343d9bb0d6.png"
+      },
+      {
+        "screenshot_name": "Default",
+        "captured_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/base-screenshots/Default-chrome-1920.png",
+        "baseline_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/af7265be-fe3d-4869-990b-224957316c50/base-screenshots/Default-chrome-1920.png",
+        "browser_name": "chrome",
+        "viewport": "1920",
+        "mismatch_percentage": 1.53,
+        "status": "Changes found",
+        "captured_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/dd43cfa5-7a03-4d8e-8fab-0eadb5d4691b.png",
+        "baseline_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/dabdec2d-2e55-43e4-ad6f-e6c68d77277d.png"
+      },
+      {
+        "screenshot_name": "Default",
+        "captured_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/base-screenshots/Default-webkit-2560.png",
+        "baseline_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/af7265be-fe3d-4869-990b-224957316c50/base-screenshots/Default-webkit-2560.png",
+        "browser_name": "webkit",
+        "viewport": "2560",
+        "mismatch_percentage": 1.12,
+        "status": "Changes found",
+        "captured_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/9210938f-3fac-430b-ba17-fd949ba2e584.png",
+        "baseline_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/ad1c595c-7a74-4c7a-8a29-ab87d69a6a74.png"
+      },
+      {
+        "screenshot_name": "Default",
+        "captured_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/base-screenshots/Default-webkit-1920.png",
+        "baseline_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/af7265be-fe3d-4869-990b-224957316c50/base-screenshots/Default-webkit-1920.png",
+        "browser_name": "webkit",
+        "viewport": "1920",
+        "mismatch_percentage": 1.5,
+        "status": "Changes found",
+        "captured_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/2d475345-df25-44fe-b38f-6fd709100255.png",
+        "baseline_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/1b477e3b-c7dd-4c3a-9c5e-4c933887a3ad.png"
+      },
+      {
+        "screenshot_name": "Default",
+        "captured_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/base-screenshots/Default-firefox-2560.png",
+        "baseline_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/af7265be-fe3d-4869-990b-224957316c50/base-screenshots/Default-firefox-2560.png",
+        "browser_name": "firefox",
+        "viewport": "2560",
+        "mismatch_percentage": 1.16,
+        "status": "Changes found",
+        "captured_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/8641373d-9dff-4fbd-9736-738f0a95875b.png",
+        "baseline_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/d529f9b7-1eb4-4352-b093-a77aef6a4a96.png"
+      },
+      {
+        "screenshot_name": "Default",
+        "captured_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/base-screenshots/Default-webkit-iPhone 14 (portrait).png",
+        "baseline_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/af7265be-fe3d-4869-990b-224957316c50/base-screenshots/Default-webkit-iPhone 14 (portrait).png",
+        "browser_name": "webkit",
+        "viewport": "iPhone 14 (portrait)",
+        "mismatch_percentage": 3.47,
+        "status": "Changes found",
+        "captured_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/d71d033f-d3da-4b10-ba7a-3e7d32fdb8ef.png",
+        "baseline_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/9be48c1c-f191-43a6-bcef-0cd97dcddf04.png"
+      },
+      {
+        "screenshot_name": "Default",
+        "captured_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/base-screenshots/Default-chrome-Galaxy S24 (portrait).png",
+        "baseline_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/af7265be-fe3d-4869-990b-224957316c50/base-screenshots/Default-chrome-Galaxy S24 (portrait).png",
+        "browser_name": "chrome",
+        "viewport": "Galaxy S24 (portrait)",
+        "mismatch_percentage": 4.34,
+        "status": "Changes found",
+        "captured_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/a7329b8c-25bc-4dfe-9f97-a8d4af21f4d6.png",
+        "baseline_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/00629edd-b81c-433f-be50-dc4b6a605aea.png"
+      },
+      {
+        "screenshot_name": "Default",
+        "captured_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/base-screenshots/Default-firefox-1920.png",
+        "baseline_image": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/af7265be-fe3d-4869-990b-224957316c50/base-screenshots/Default-firefox-1920.png",
+        "browser_name": "firefox",
+        "viewport": "1920",
+        "mismatch_percentage": 1.54,
+        "status": "Changes found",
+        "captured_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/f400a0fd-b4c6-4656-8a25-ba7d4371f0d1.png",
+        "baseline_diff": "https://automation-dotlapse-artefact.lambdatest.com/org-1952472/01JZ2RHZFY8F4XTKQ9NX6EK2SD/e6564dae-811a-4238-8d7c-3eb216217369/compared-screenshots/6482a392-a849-4559-9513-bc86448c4451.png"
+      }
+    ]
+  },
+  "build": {
+    "build_id": "e6564dae-811a-4238-8d7c-3eb216217369",
+    "build_name": "smartui-c0dc6e551c",
+    "baseline": false,
+    "build_type": "smartui-cli",
+    "build_status_ind": "completed",
+    "build_status": "pending-approval",
+    "commitId": "NA",
+    "branch": "unknown-branch",
+    "commitAuthor": "NA",
+    "commitMessage": "NA",
+    "comparisonStrategy": "smart-ignore"
+  },
+  "project": {
+    "project_id": "01JZ2RHZFY8F4XTKQ9NX6EK2SD",
+    "name": "VisualRegressionTester",
+    "username": "vijopv83",
+    "project_type": "smartui-cli",
+    "projectCategory": "web",
+    "platform": "cli"
+  }
+}
