@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <title>LambdaTest SmartUI Reporter</title>
+  <title>LT SmartUI Reporter</title>
   <style>
     :root {
       --bg-color: #ffffff;
@@ -377,8 +377,14 @@
     }
 
     body.dark-mode footer {
-      background-color: #23272e;
-      color: #e0e0e0;
+      background-color: #181c22 !important;
+      color: #f5f5f5 !important;
+      border-top: 1.5px solid #333 !important;
+    }
+
+    body.dark-mode footer a {
+      color: #8ecbff !important;
+      text-decoration: underline;
     }
 
     .footer-left {
@@ -1296,8 +1302,7 @@
     <div class="sticky-header">
       <div style="display: flex; align-items: center; gap: 8px;">
         <img src="favicon.ico" alt="Logo" width="20" height="20" />
-        <h1 style="cursor:pointer;transition:color 0.2s;" id="headerTitle" title="Refresh">LambdaTest SmartUI Reporter
-        </h1>
+        <h1 style="cursor:pointer;transition:color 0.2s;" id="headerTitle" title="Refresh">LambdaTest SmartUI Reporter - v1.2.0</h1>
       </div>
       <div>
         <button id="toggleDarkModeBtn" onclick="toggleDarkMode()" title="Theme" class="darkmode-icon-btn">🌙</button>
@@ -1315,7 +1320,7 @@
           style="flex:1 1 340px;min-width:320px;padding:44px 40px 36px 44px;background:linear-gradient(120deg,#f8fbff 60%,#eaf3ff 100%);border-right:1.5px solid #e3e8f0;display:flex;flex-direction:column;justify-content:center;">
           <h2
             style="margin-top:0;margin-bottom:18px;color:#007bff;font-size:2.2em;font-weight:800;letter-spacing:0.01em;line-height:1.1;display:flex;align-items:center;gap:12px;">
-            <span style='font-size:1.2em;'>🧪</span> Instant Visual Test Insights!
+            <span style='font-size:1.2em;'>🧪</span>Visual Test Insights!
           </h2>
           <ol style="margin:0 0 0 18px;padding:0 0 0 10px;font-size:1.13em;line-height:1.7;">
             <li style="margin-bottom:14px;">Run your SmartUI test command in your terminal:<br>
@@ -1324,11 +1329,9 @@
             </li>
             <li style="margin-bottom:14px;">Open <b style="color:#007bff;">LTSmartUIReporter.html</b> in your favorite
               browser.</li>
-            <li style="margin-bottom:14px;">Click <b style="color:#007bff;">Upload JSON</b> and select the SmartUI JSON
-              response <b style="color:#d6336c;">results.json</b>.</li>
+            <li style="margin-bottom:14px;">On top right, click <b style="color:#007bff;">Upload JSON</b> and upload the JSON <b style="color:#d6336c;">results.json</b>.</li>
           </ol>
-          <div style="margin-top:32px;color:#888;font-size:1.04em;">This message will disappear once you upload your
-            results.</div>
+          <div style="margin-top:32px;color:#888;font-size:1.04em;">This message will disappear once you upload JSON.</div>
         </div>
         <!-- Right: File selection and info -->
         <div
@@ -1425,15 +1428,13 @@
         <label>Resolution:
           <select id="viewportSelect"></select>
         </label>
-        <label>Image Difference:
+        <label>Difference:
           <select id="imageDiff">
-            <option value="baseline_diff">Baseline Diff</option>
-            <option value="captured_diff">Captured Diff</option>
+            <!-- Options will be populated dynamically -->
           </select>
         </label>
         <button onclick="exportAllPDF()" title="PDF Export"
-          style="float: right; margin-left: 16px; padding: 7px 18px; border-radius: 7px; border: 1.5px solid var(--border-color); background: var(--panel-color); color: var(--text-color); font-weight: 500; font-size: 1em; cursor: pointer; box-shadow: 0 2px 8px #0001;">🧾
-          PDF Export All Views</button>
+          style="float: right; margin-left: 16px; padding: 7px 18px; border-radius: 7px; border: 1.5px solid var(--border-color); background: var(--panel-color); color: var(--text-color); font-weight: 500; font-size: 1em; cursor: pointer; box-shadow: 0 2px 8px #0001;">🧾 Export All Views</button>
       </div>
       <div id="viewportContentContainer"></div>
     </div>
@@ -1442,11 +1443,14 @@
   </main>
 
   <footer>
-    <span class="footer-left">LambdaTest SmartUI Report Viewer - v1.1.1</span>
-    <span class="footer-right">Creator. Builder. Curious? Let's talk →<a href="https://www.linkedin.com/in/vijopv83"
-        target="_blank" rel="noopener noreferrer">linkedin.com/in/vijopv83</a>
+    <span class="footer-left">
+      <a href="https://github.com/vijopv83/LambdaTestSmartUIReporter" target="_blank">GitHub</a>: ⭐ the repo, open an issue, or submit a pull request!
     </span>
-  </footer>
+    <span class="footer-right">
+      Creator. Builder. Curious? Let's talk → <a href="https://www.linkedin.com/in/vijopv83" target="_blank" rel="noopener noreferrer">linkedin.com/in/vijopv83
+      </a>
+    </span>
+  </footer>  
 
   <script defer>
     // Prevent error if renderDashboardCards is not defined
@@ -1483,6 +1487,38 @@
       currentViewport = viewport;
       document.title = `SmartUI ${page}`;
       populateDropdowns();
+      // Dynamically populate imageDiff dropdown based on available keys
+      const imageDiffSelect = document.getElementById('imageDiff');
+      let entries = [];
+      if (smartUIData.value.screenshots[page]) {
+        entries = smartUIData.value.screenshots[page].filter(
+          e => e.browser_name === browser && e.viewport == viewport
+        );
+      }
+      // Find all possible diff keys in the entries
+      const diffKeys = new Set();
+      entries.forEach(s => {
+        if ('baseline_diff' in s) diffKeys.add('baseline_diff');
+        if ('captured_diff' in s) diffKeys.add('captured_diff');
+        if ('compared_image' in s) diffKeys.add('compared_image');
+      });
+      // Map to label
+      const keyLabels = {
+        'baseline_diff': 'Baseline Diff',
+        'captured_diff': 'Captured Diff',
+        'compared_image': 'Compared Image',
+      };
+      imageDiffSelect.innerHTML = '';
+      diffKeys.forEach(key => {
+        const opt = document.createElement('option');
+        opt.value = key;
+        opt.textContent = keyLabels[key] || key;
+        imageDiffSelect.appendChild(opt);
+      });
+      // Default to first option
+      if (imageDiffSelect.options.length > 0) {
+        imageDiffSelect.selectedIndex = 0;
+      }
       const dash = document.getElementById('dashboardSection');
       const detail = document.getElementById('detailSection');
       dash.classList.add('fade-slide');
@@ -1503,50 +1539,68 @@
 
       // Only update if changed
       const pages = Object.keys(smartUIData.value.screenshots);
-      if (pageSelect.options.length !== pages.length) {
-        pageSelect.innerHTML = '';
-        pages.forEach(p => {
-          const opt = document.createElement('option');
-          opt.value = p;
-          opt.textContent = p;
-          if (p === currentPage) opt.selected = true;
-          pageSelect.appendChild(opt);
-        });
+      pageSelect.innerHTML = '';
+      pages.forEach(p => {
+        const opt = document.createElement('option');
+        opt.value = p;
+        opt.textContent = p;
+        pageSelect.appendChild(opt);
+      });
+      if (!pages.includes(currentPage)) {
+        currentPage = pages[0] || '';
       }
 
-      const browsers = [...new Set(smartUIData.value.screenshots[currentPage].map(e => e.browser_name))];
-      if (browserSelect.options.length !== browsers.length) {
-        browserSelect.innerHTML = '';
-        browsers.forEach(b => {
-          const opt = document.createElement('option');
-          opt.value = b;
-          opt.textContent = b;
-          if (b === currentBrowser) opt.selected = true;
-          browserSelect.appendChild(opt);
-        });
+      // Browsers for the current page
+      let browsers = [];
+      if (smartUIData.value.screenshots[currentPage]) {
+        browsers = [...new Set(smartUIData.value.screenshots[currentPage].map(e => e.browser_name))];
       }
+      browserSelect.innerHTML = '';
+      browsers.forEach(b => {
+        const opt = document.createElement('option');
+        opt.value = b;
+        opt.textContent = b;
+        browserSelect.appendChild(opt);
+      });
+      currentBrowser = browsers.includes(currentBrowser) ? currentBrowser : (browsers[0] || '');
+      browserSelect.value = currentBrowser;
 
-      const viewports = [...new Set(smartUIData.value.screenshots[currentPage].filter(e => e.browser_name === currentBrowser).map(e => e.viewport))].sort((a, b) => a - b);
-      if (viewportSelect.options.length !== viewports.length) {
-        viewportSelect.innerHTML = '';
-        viewports.forEach(v => {
-          const opt = document.createElement('option');
-          opt.value = v;
-          opt.textContent = `${v}px`;
-          if (v == currentViewport) opt.selected = true;
-          viewportSelect.appendChild(opt);
-        });
+      // Viewports for the current page and browser
+      let viewports = [];
+      if (smartUIData.value.screenshots[currentPage]) {
+        viewports = [...new Set(smartUIData.value.screenshots[currentPage]
+          .filter(e => e.browser_name === currentBrowser)
+          .map(e => e.viewport))];
       }
+      viewportSelect.innerHTML = '';
+      viewports.forEach(v => {
+        const opt = document.createElement('option');
+        opt.value = v;
+        opt.textContent = `${v}px`;
+        viewportSelect.appendChild(opt);
+      });
+      currentViewport = viewports.includes(currentViewport) ? currentViewport : (viewports[0] || '');
+      viewportSelect.value = currentViewport;
     }
 
     // Event delegation for dropdowns
     document.addEventListener('change', (e) => {
       if (e.target && (e.target.id === 'pageSelect' || e.target.id === 'browserSelect' || e.target.id === 'viewportSelect' || e.target.id === 'imageDiff')) {
+        // Always update current values from dropdowns
         currentPage = document.getElementById('pageSelect').value;
         currentBrowser = document.getElementById('browserSelect').value;
         currentViewport = document.getElementById('viewportSelect').value;
+        // If page or browser changes, repopulate dependent dropdowns
+        if (e.target.id === 'pageSelect' || e.target.id === 'browserSelect') {
+          populateDropdowns();
+          currentPage = document.getElementById('pageSelect').value;
+          currentBrowser = document.getElementById('browserSelect').value;
+          currentViewport = document.getElementById('viewportSelect').value;
+        }
         document.title = `SmartUI ${currentPage}`;
-        renderImages(currentPage, currentBrowser, currentViewport);
+        if (currentPage && currentBrowser && currentViewport) {
+          renderImages(currentPage, currentBrowser, currentViewport);
+        }
       }
     }, { passive: true });
 
@@ -1606,17 +1660,42 @@
 
     function renderImages(page, browser, viewport) {
       const container = document.getElementById('viewportContentContainer');
-      const imageKey = document.getElementById('imageDiff').value;
+      const imageDiffSelect = document.getElementById('imageDiff');
+      // Use selected value or fallback to first available
+      let imageKey = imageDiffSelect && imageDiffSelect.value;
+      if (!imageKey) {
+        // Fallback: try to find a key from the first entry
+        let entries = [];
+        if (smartUIData.value.screenshots[page]) {
+          entries = smartUIData.value.screenshots[page].filter(
+            e => e.browser_name === browser && e.viewport == viewport
+          );
+        }
+        if (entries.length > 0) {
+          if ('baseline_diff' in entries[0]) imageKey = 'baseline_diff';
+          else if ('captured_diff' in entries[0]) imageKey = 'captured_diff';
+          else if ('compared_image' in entries[0]) imageKey = 'compared_image';
+        }
+      }
       // Use DocumentFragment for batch DOM update
       const frag = document.createDocumentFragment();
-      const entries = smartUIData.value.screenshots[page].filter(
-        e => e.browser_name === browser && e.viewport == viewport
-      );
+      let entries = [];
+      if (smartUIData.value.screenshots[page]) {
+        entries = smartUIData.value.screenshots[page].filter(
+          e => e.browser_name === browser && e.viewport == viewport
+        );
+      }
+      if (entries.length === 0) {
+        container.innerHTML = '<div style="color:#888;padding:24px 0 24px 0;text-align:center;">No images for this selection.</div>';
+        return;
+      }
       for (const s of entries) {
         // Prefetch images
         for (const key of ['baseline_image', 'captured_image', imageKey]) {
-          const img = new Image();
-          img.src = s[key];
+          if (s[key]) {
+            const img = new Image();
+            img.src = s[key];
+          }
         }
         const mismatchClass = getMismatchClass(s.mismatch_percentage);
         const resolution = `${s.viewport}px`;
@@ -1648,7 +1727,7 @@
           <span class="label">(${resolution}) Diff: 
             <span class="${mismatchClass}">Mismatch: ${s.mismatch_percentage}%</span>
           </span>
-          <img src="${s[imageKey]}" />
+          <img src="${s[imageKey] || ''}" />
         </div>
       </div>
     `;
@@ -1783,7 +1862,7 @@
                   <span class="label">(${resolution}) Diff: 
                     <span class="${mismatchClass}">Mismatch: ${s.mismatch_percentage}%</span>
                   </span>
-                  <img src="${s[imageKey]}" loading="lazy" />
+                  <img src="${s[imageKey] || ''}" loading="lazy" />
                 </div>
               </div>`;
                 browserGroupDiv.appendChild(div);
@@ -1950,6 +2029,31 @@
             <div><strong>Baseline:</strong> ${build.baseline}</div>
             <div><strong>Pages:</strong> ${Object.keys(smartUIData.value.screenshots).length}</div>
           `;
+          // --- Robustly reset all dropdowns to first valid values ---
+          const screenshots = smartUIData.value.screenshots;
+          const pages = Object.keys(screenshots);
+          currentPage = pages[0];
+          let browsers = [];
+          let viewports = [];
+          currentBrowser = '';
+          currentViewport = '';
+          if (screenshots[currentPage]) {
+            browsers = [...new Set(screenshots[currentPage].map(e => e.browser_name))];
+            currentBrowser = browsers[0] || '';
+            viewports = screenshots[currentPage]
+              .filter(e => e.browser_name === currentBrowser)
+              .map(e => e.viewport);
+            currentViewport = viewports[0] || '';
+          }
+          populateDropdowns();
+          // Set dropdown values in DOM to match variables
+          document.getElementById('pageSelect').value = currentPage;
+          document.getElementById('browserSelect').value = currentBrowser;
+          document.getElementById('viewportSelect').value = currentViewport;
+          if (currentPage && currentBrowser && currentViewport) {
+            renderImages(currentPage, currentBrowser, currentViewport);
+          }
+          // ---
           renderSummaryTable(true);
           renderDashboardCards();
           showDashboard();
@@ -2464,14 +2568,6 @@
       }
       updateDarkModeIcon && updateDarkModeIcon();
     });
-    // Save dark mode preference on toggle
-    const origToggleDarkMode = window.toggleDarkMode;
-    window.toggleDarkMode = function () {
-      document.body.classList.toggle('dark-mode');
-      document.documentElement.classList.toggle('dark-mode');
-      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-      updateDarkModeIcon && updateDarkModeIcon();
-    };
   </script>
 </body>
 
