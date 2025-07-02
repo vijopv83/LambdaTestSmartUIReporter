@@ -1,87 +1,133 @@
-# 📊 LambdaTest SmartUI Report Viewer
+# LambdaTest SmartUI Reporter
 
-An interactive, client-side HTML report viewer for [LambdaTest Smart UI](https://www.lambdatest.com/visual-regression-testing) visual regression test results.
+> Instantly visualize your SmartUI test results—just drop in your JSON file to explore interactive before-and-after snapshots in a clean, filterable dashboard.
+>
+> Built for Developers, Designers, Managers, and QA teams to easily spot visual regressions, assess their impact, and collaborate on fixes with ease.
+>
+> Try it now and streamline your entire visual testing workflow!
 
-Check out the [GitHub Pages](https://vijopv83.github.io/LambdaTestSmartUIReporter/) to explore it in action.
+## 📚 Table of Contents
 
----
-
-## 🚀 Quick Start
-
-1. **Clone the repository**  
-   ```bash
-   git clone https://github.com/your-username/LTSmartUIReporter.git
-   cd LTSmartUIReporter
-   ```
-
-2. **Run your Smart UI test command**  
-   ```bash
-   smartui capture urls.json --config smartui-web.json --fetch-results
-   ```
-
-3. **Launch the report viewer**  
-   - Open `LTSmartUIReporter.html` in your favorite browser.
-
-4. **Upload JSON results**  
-   - Click **Upload JSON** and select the Smart UI JSON response.  
-   - Your visual test report is generated dynamically!
+- [✨ Features](#✨-features)
+- [🔧 Prerequisites](#🔧-prerequisites)
+- [🚀 Installation](#🚀-installation)
+- [🌐 Online Demo](#🌐-online-demo)
+- [💡 Usage Examples](#💡-usage-examples)
+- [⚙️ Configuration](#⚙️-configuration)
+- [🗂️ File Structure](#🗂️-file-structure)
+- [🤝 Contributing](#🤝-contributing)
+- [📬 Questions and Support](#questions-and-support)
+- [📈 Roadmap](#📈-roadmap)
+- [📝 Changelog](#📝-changelog)
+- [🔑 Licence](#🔑-licence)
 
 ---
 
-## ✨ Key Features
+## ✨ Features
 
-- **Dynamic Filtering**: Instantly filter results by **Page**, **Browser**, and **Resolution**.  
-- **Multiple Diff Types**: Choose between **Compared Image**, **Captured Diff**, or **Baseline Diff** (auto-detected).  
-- **Dark Mode**: Toggle between light and dark themes for day/night testing.  
-- **PDF Export**: Export all browser-resolution comparisons at once for offline review.  
-- **Offline-First**: Pure HTML/JS—no server or backend required.  
-- **Sticky Header**: Always have controls accessible while scrolling.  
-- **Responsive Layout**: Automatically adapts to different viewport sizes.
+- **Dashboard View**: Overview table showing pages, browsers, viewports, and mismatch rates.
+- **Filtering**: Quickly narrow results by page, browser, or resolution.
+- **Interactive Diff**: Compare baseline vs. capture with a draggable slider.
+- **Export**: Download CSV for data analysis or PDF for reports.
+- **Theme Toggle**: Light/dark modes with preference saved in `localStorage`.
 
----
+[Back to top](#📚-table-of-contents)
 
-## ⚙️ Functionality Details
+## 🔧 Prerequisites
 
-1. **Dashboard View**  
-   - **Page Selector**: Lists all tested page names.  
-   - **Browser Selector**: Shows browsers with test data for the selected page.  
-   - **Resolution Selector**: Displays available viewport sizes for the chosen page/browser.  
-   - **Summary Table**: Clickable rows open the detailed comparison view.
+- A JSON results file from LambdaTest SmartUI:
+  ```bash
+  smartui capture urls.json --config smartui-web.json --fetch-results results.json
+  ```
+- Modern browser (Chrome, Firefox, Edge, Safari)
 
-2. **Detail View**  
-   - **Three-Panel Layout**: Side-by-side **Baseline**, **Captured**, and **Diff** images.  
-   - **Diff Dropdown**: Dynamically lists available diff image types from JSON.  
-   - **Back Button**: Returns to the Dashboard without reloading.
+[Back to top](#📚-table-of-contents)
 
-3. **Export to PDF**  
-   - Collects all combinations (`browser × resolution`) for the current page.  
-   - Preloads images to ensure a complete PDF snapshot.  
-   - Opens the print dialog, ready-to-export all comparisons.
+## 🚀 Installation
 
-4. **Customization**  
-   - **Configuration**: Easily tweak colors, fonts, and layout via CSS variables in the `<style>` block.  
-   - **Extensibility**: Single-page JS code—add new filters or export formats with minimal effort.
+Clone and open locally:
 
----
+```bash
+git clone https://github.com/vijopv83/LambdaTestSmartUIReporter.git
+cd LambdaTestSmartUIReporter
+open index.html
+```
 
-## 🛠️ Development
+[Back to top](#📚-table-of-contents)
 
-- **HTML/CSS/JS**: Vanilla, no frameworks—straightforward to understand and extend.  
-- **Modular Functions**:  
-  - `renderSummaryTable()`  
-  - `filterSummaryTable()`  
-  - `populateDropdowns()`  
-  - `renderImages()`  
-  - `exportAllPDF()`  
-  - `toggleDarkMode()`  
+## 🌐 Online Demo
 
-- **Use Cases**:  
-  - Integrate into CI pipelines to visualize Smart UI results.  
-  - Share interactive test reports with non-technical stakeholders.  
-  - Quickly identify visual regressions across browsers and viewports.
+No setup, view live on GitHub Pages:
 
----
+[https://vijopv83.github.io/LambdaTestSmartUIReporter/](https://vijopv83.github.io/LambdaTestSmartUIReporter/)
 
-## 🪪 License
+[Back to top](#📚-table-of-contents)
 
-This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.
+## 💡 Usage Examples
+
+Load your JSON and run through the UI:
+
+```bash
+# Upload your results file
+# Explore dashboard filters
+# Click Export CSV or Export All Views (PDF)
+```
+
+[Back to top](#📚-table-of-contents)
+
+## ⚙️ Configuration
+
+- Toggle dark/light mode via the 🌙 button.
+- Load sample files (`LTResults.json` / `LTSmartIgnoreResults.json`) from the dropdown.
+
+[Back to top](#📚-table-of-contents)
+
+## 🗂️ File Structure
+
+```
+├── LTSmartUIReporter.html    # Main UI
+├── LTResults.json            # Sample results
+├── LTSmartIgnoreResults.json # Ignore results sample
+├── screenshot.gif            # Demo animation
+└── favicon.ico               # Icon
+```
+
+[Back to top](#📚-table-of-contents)
+
+## 🤝 Contributing
+
+We welcome your contributions!
+
+- ⭐ Star the repo to show your support
+- 🔎 Check existing [issues](https://github.com/vijopv83/LambdaTestSmartUIReporter/issues)
+- ➕ Submit new issues using our [issue templates](https://github.com/vijopv83/LambdaTestSmartUIReporter/tree/main/.github/ISSUE_TEMPLATE)
+- 📦 Fork the project, make your changes, and open a Pull Request
+
+[Back to top](#📚-table-of-contents)
+
+## 📈 Roadmap
+
+Planned enhancements:
+
+- 🌐 Multi-language support for localization
+- 📊 Advanced analytics dashboard
+
+[Back to top](#📚-table-of-contents)
+
+## 📝 Changelog
+
+See [CHANGELOG.md](https://github.com/vijopv83/LambdaTestSmartUIReporter/blob/main/CHANGELOG.md) for release notes and version history.
+
+[Back to top](#📚-table-of-contents)
+
+## **Questions and Support**
+
+Got feedback, ideas, or need help?
+
+Feel free to reach out on [LinkedIn](https://www.linkedin.com/in/vijopv83/), happy to connect!
+
+[Back to top](#📚-table-of-contents)
+
+## 🔑 Licence
+
+MIT © [Vijo Varghese](https://github.com/vijopv83)
