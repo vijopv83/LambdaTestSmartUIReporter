@@ -1,6 +1,6 @@
 # LambdaTest SmartUI Reporter
 
-Instantly visualize your SmartUI test results—just drop in your JSON file to explore interactive before-and-after snapshots in a clean, filterable dashboard.
+Instantly visualize your SmartUI test results, upload your JSON file to explore interactive before-and-after snapshots in a clean, filterable dashboard.
 
 Built for Developers, Designers, Managers, and QA teams to easily spot visual regressions, assess their impact, and collaborate on fixes with ease.
 
