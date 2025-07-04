@@ -1376,7 +1376,7 @@
       /* Enhance welcome section buttons and inputs */
       #welcomeSection button#loadJsonBtn {
         box-shadow: 0 2px 12px #007bff33;
-        background: linear-gradient(90deg,#007bff 60%,#66aaff 100%);
+        background: linear-gradient(90deg, #007bff 60%, #66aaff 100%);
         color: #fff;
         font-weight: 800;
         font-size: 1.08em;
@@ -1387,11 +1387,14 @@
         outline: none;
         letter-spacing: 0.01em;
       }
-      #welcomeSection button#loadJsonBtn:hover, #welcomeSection button#loadJsonBtn:focus {
-        background: linear-gradient(90deg,#0056b3 60%,#66aaff 100%);
+
+      #welcomeSection button#loadJsonBtn:hover,
+      #welcomeSection button#loadJsonBtn:focus {
+        background: linear-gradient(90deg, #0056b3 60%, #66aaff 100%);
         box-shadow: 0 4px 24px #007bff55;
         transform: translateY(-2px) scale(1.04);
       }
+
       #welcomeSection select#jsonFileSelect {
         border: 2px solid #b3c6e6;
         border-radius: 8px;
@@ -1403,16 +1406,19 @@
         transition: box-shadow 0.2s, border 0.2s;
         outline: none;
       }
+
       #welcomeSection select#jsonFileSelect:focus {
         border: 2px solid #007bff;
         box-shadow: 0 4px 16px #007bff33;
       }
+
       /* Responsive: stack columns on small screens */
       @media (max-width: 900px) {
-        #welcomeSection > div {
+        #welcomeSection>div {
           flex-direction: column !important;
         }
-        #welcomeSection > div > div {
+
+        #welcomeSection>div>div {
           border-right: none !important;
           border-bottom: 2.5px solid #b3c6e6;
           box-shadow: none !important;
@@ -1602,6 +1608,7 @@
       if (!pages.includes(currentPage)) {
         currentPage = pages[0] || '';
       }
+      pageSelect.value = currentPage;
 
       // Browsers for the current page
       let browsers = [];
@@ -1634,6 +1641,11 @@
       });
       currentViewport = viewports.includes(currentViewport) ? currentViewport : (viewports[0] || '');
       viewportSelect.value = currentViewport;
+
+      // Always update images after repopulating dropdowns
+      if (currentPage && currentBrowser && currentViewport) {
+        renderImages(currentPage, currentBrowser, currentViewport);
+      }
     }
 
     // Event delegation for dropdowns
@@ -1645,10 +1657,8 @@
         currentViewport = document.getElementById('viewportSelect').value;
         // If page or browser changes, repopulate dependent dropdowns
         if (e.target.id === 'pageSelect' || e.target.id === 'browserSelect') {
+          // update currentPage etc. first, then repopulate
           populateDropdowns();
-          currentPage = document.getElementById('pageSelect').value;
-          currentBrowser = document.getElementById('browserSelect').value;
-          currentViewport = document.getElementById('viewportSelect').value;
         }
         document.title = `SmartUI ${currentPage}`;
         if (currentPage && currentBrowser && currentViewport) {
@@ -1757,11 +1767,27 @@
         div.innerHTML = `
       <div class="image-row">
         <div class="image-box">
-          <span class="label">(${resolution}) Baseline</span>
+          <span class="label">(${resolution}) Baseline
+            <a href="${s.baseline_image}" target="_blank" title="Open Baseline in new tab" style="margin-left:6px;vertical-align:middle;display:inline-block;">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none" style="vertical-align:middle;">
+                <path d="M7 7H5.5A1.5 1.5 0 0 0 4 8.5v6A1.5 1.5 0 0 0 5.5 16h6a1.5 1.5 0 0 0 1.5-1.5V13" stroke="#007bff" stroke-width="2" stroke-linecap="round"/>
+                <path d="M10 10l6-6" stroke="#007bff" stroke-width="2" stroke-linecap="round"/>
+                <path d="M14 4h2v2" stroke="#007bff" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </span>
           <img src="${s.baseline_image}" />
         </div>
         <div class="image-box">
-          <span class="label">(${resolution}) Captured</span>
+          <span class="label">(${resolution}) Captured
+            <a href="${s.captured_image}" target="_blank" title="Open Captured in new tab" style="margin-left:6px;vertical-align:middle;display:inline-block;">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none" style="vertical-align:middle;">
+                <path d="M7 7H5.5A1.5 1.5 0 0 0 4 8.5v6A1.5 1.5 0 0 0 5.5 16h6a1.5 1.5 0 0 0 1.5-1.5V13" stroke="#007bff" stroke-width="2" stroke-linecap="round"/>
+                <path d="M10 10l6-6" stroke="#007bff" stroke-width="2" stroke-linecap="round"/>
+                <path d="M14 4h2v2" stroke="#007bff" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </span>
           <div class="slider-container" id="slider-${page}-${browser}-${viewport}">
             <div class="slider-bar" id="bar-${page}-${browser}-${viewport}"></div>
             <img src="${s.baseline_image}" class="baseline-image" loading="lazy" />
@@ -1777,8 +1803,15 @@
           </div>
         </div>
         <div class="image-box">
-          <span class="label">(${resolution}) Diff: 
+          <span class="label">(${resolution}) Diff:
             <span class="${mismatchClass}">Mismatch: ${s.mismatch_percentage}%</span>
+            <a href="${s[imageKey] || ''}" target="_blank" title="Open Diff in new tab" style="margin-left:6px;vertical-align:middle;display:inline-block;">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none" style="vertical-align:middle;">
+                <path d="M7 7H5.5A1.5 1.5 0 0 0 4 8.5v6A1.5 1.5 0 0 0 5.5 16h6a1.5 1.5 0 0 0 1.5-1.5V13" stroke="#007bff" stroke-width="2" stroke-linecap="round"/>
+                <path d="M10 10l6-6" stroke="#007bff" stroke-width="2" stroke-linecap="round"/>
+                <path d="M14 4h2v2" stroke="#007bff" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
           </span>
           <img src="${s[imageKey] || ''}" />
         </div>
@@ -1892,11 +1925,27 @@
                 div.innerHTML = `
               <div class="image-row">
                 <div class="image-box">
-                  <span class="label">(${resolution}) Baseline</span>
-                  <img src="${s.baseline_image}" loading="lazy" />
+                  <span class="label">(${resolution}) Baseline
+                    <a href="${s.baseline_image}" target="_blank" title="Open Baseline in new tab" style="margin-left:6px;vertical-align:middle;display:inline-block;">
+                      <svg width="18" height="18" viewBox="0 0 20 20" fill="none" style="vertical-align:middle;">
+                        <path d="M7 7H5.5A1.5 1.5 0 0 0 4 8.5v6A1.5 1.5 0 0 0 5.5 16h6a1.5 1.5 0 0 0 1.5-1.5V13" stroke="#007bff" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M10 10l6-6" stroke="#007bff" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M14 4h2v2" stroke="#007bff" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+                    </a>
+                  </span>
+                  <img src="${s.baseline_image}" />
                 </div>
                 <div class="image-box">
-                  <span class="label">(${resolution}) Captured</span>
+                  <span class="label">(${resolution}) Captured
+                    <a href="${s.captured_image}" target="_blank" title="Open Captured in new tab" style="margin-left:6px;vertical-align:middle;display:inline-block;">
+                      <svg width="18" height="18" viewBox="0 0 20 20" fill="none" style="vertical-align:middle;">
+                        <path d="M7 7H5.5A1.5 1.5 0 0 0 4 8.5v6A1.5 1.5 0 0 0 5.5 16h6a1.5 1.5 0 0 0 1.5-1.5V13" stroke="#007bff" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M10 10l6-6" stroke="#007bff" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M14 4h2v2" stroke="#007bff" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+                    </a>
+                  </span>
                   <div class="slider-container" id="slider-${currentPage}-${browser}-${viewport}">
                     <div class="slider-bar" id="bar-${currentPage}-${browser}-${viewport}"></div>
                     <img src="${s.baseline_image}" class="baseline-image" loading="lazy" />
@@ -1912,10 +1961,17 @@
                   </div>
                 </div>
                 <div class="image-box">
-                  <span class="label">(${resolution}) Diff: 
+                  <span class="label">(${resolution}) Diff:
                     <span class="${mismatchClass}">Mismatch: ${s.mismatch_percentage}%</span>
+                    <a href="${s[imageKey] || ''}" target="_blank" title="Open Diff in new tab" style="margin-left:6px;vertical-align:middle;display:inline-block;">
+                      <svg width="18" height="18" viewBox="0 0 20 20" fill="none" style="vertical-align:middle;">
+                        <path d="M7 7H5.5A1.5 1.5 0 0 0 4 8.5v6A1.5 1.5 0 0 0 5.5 16h6a1.5 1.5 0 0 0 1.5-1.5V13" stroke="#007bff" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M10 10l6-6" stroke="#007bff" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M14 4h2v2" stroke="#007bff" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+                    </a>
                   </span>
-                  <img src="${s[imageKey] || ''}" loading="lazy" />
+                  <img src="${s[imageKey] || ''}" />
                 </div>
               </div>`;
                 browserGroupDiv.appendChild(div);
