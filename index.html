@@ -1302,7 +1302,8 @@
     <div class="sticky-header">
       <div style="display: flex; align-items: center; gap: 8px;">
         <img src="favicon.ico" alt="Logo" width="20" height="20" />
-        <h1 style="cursor:pointer;transition:color 0.2s;" id="headerTitle" title="Refresh">LambdaTest SmartUI Reporter - v1.2.0</h1>
+        <h1 style="cursor:pointer;transition:color 0.2s;" id="headerTitle" title="Refresh">LambdaTest SmartUI Reporter -
+          v1.2.0</h1>
       </div>
       <div>
         <button id="toggleDarkModeBtn" onclick="toggleDarkMode()" title="Theme" class="darkmode-icon-btn">🌙</button>
@@ -1313,52 +1314,57 @@
     </div>
 
     <section id="welcomeSection"
-      style="max-width:980px;margin:48px auto 0 auto;padding:0;border-radius:24px;box-shadow:0 8px 40px #0002;background:#fff;color:#222;text-align:left;display:block;font-family:'Manrope','Segoe UI',Tahoma,Geneva,Verdana,sans-serif;letter-spacing:0.01em;border:1.5px solid #e3e8f0;overflow:hidden;">
+      style="max-width:980px;margin:48px auto 0 auto;padding:0;border-radius:24px;box-shadow:0 8px 40px #0002;background:linear-gradient(120deg,#f8fbff 60%,#eaf3ff 100%);color:#222;text-align:left;display:block;font-family:'Manrope','Segoe UI',Tahoma,Geneva,Verdana,sans-serif;letter-spacing:0.01em;border:1.5px solid #e3e8f0;overflow:hidden;position:relative;">
       <div style="display:flex;flex-wrap:wrap;align-items:stretch;">
         <!-- Left: Instructions -->
         <div
-          style="flex:1 1 340px;min-width:320px;padding:44px 40px 36px 44px;background:linear-gradient(120deg,#f8fbff 60%,#eaf3ff 100%);border-right:1.5px solid #e3e8f0;display:flex;flex-direction:column;justify-content:center;">
+          style="flex:1 1 340px;min-width:320px;padding:48px 44px 40px 48px;background:linear-gradient(120deg,#f8fbff 60%,#eaf3ff 100%);border-right:2.5px solid #b3c6e6;display:flex;flex-direction:column;justify-content:center;box-shadow:2px 0 16px #b3c6e622;">
           <h2
-            style="margin-top:0;margin-bottom:18px;color:#007bff;font-size:2.2em;font-weight:800;letter-spacing:0.01em;line-height:1.1;display:flex;align-items:center;gap:12px;">
+            style="margin-top:0;margin-bottom:22px;color:#007bff;font-size:2.3em;font-weight:900;letter-spacing:0.01em;line-height:1.1;display:flex;align-items:center;gap:14px;text-shadow:0 2px 8px #b3c6e633;">
             <span style='font-size:1.2em;'>🧪</span>Visual Test Insights!
           </h2>
-          <ol style="margin:0 0 0 18px;padding:0 0 0 10px;font-size:1.13em;line-height:1.7;">
-            <li style="margin-bottom:14px;">Run SmartUI test in terminal:<br>
+          <ol style="margin:0 0 0 18px;padding:0 0 0 10px;font-size:1.15em;line-height:1.8;">
+            <li style="margin-bottom:16px;">Run SmartUI test in terminal:<br>
               <code
-                style="display:block;background:#f5f7fa;padding:10px 14px;border-radius:8px;margin:10px 0 0 0;font-size:1.04em;color:#d6336c;font-family:'Fira Mono', 'Consolas', 'Menlo', monospace;box-shadow:0 2px 8px #0001;">smartui capture urls.json --config smartui-web.json --fetch-results results.json</code>
+                style="display:block;background:#f5f7fa;padding:12px 16px;border-radius:10px;margin:12px 0 0 0;font-size:1.07em;color:#d6336c;font-family:'Fira Mono', 'Consolas', 'Menlo', monospace;box-shadow:0 2px 8px #0001;">smartui capture urls.json --config smartui-web.json --fetch-results results.json</code>
             </li>
-            <li style="margin-bottom:14px;">Open <b style="color:#007bff;">index.html</b> in your browser.</li>
-            <li style="margin-bottom:14px;">On top right, click <b style="color:#007bff;">Upload JSON</b> and select <b style="color:#d6336c;">results.json</b>.</li>
+            <li style="margin-bottom:16px;">Open <b style="color:#007bff;">index.html</b> in your browser.</li>
+            <li style="margin-bottom:16px;">On top right, click <b style="color:#007bff;">Upload JSON</b> and select <b
+                style="color:#d6336c;">results.json</b>.</li>
+            <div style="margin-top:36px;color:#888;font-size:1.07em;">
+              Inject visual differences easily with this simple
+              <a href="https://vijopv83.github.io/VisualRegressionTester/" target="_blank"
+                style="color:#888; text-decoration:underline; font-weight:500;">VisualRegressionTester</a>.
+            </div>
           </ol>
+        </div>
         <!-- Right: File selection and info -->
         <div
-          style="flex:1 1 340px;min-width:320px;padding:44px 40px 36px 40px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;background:#fff;">
+          style="flex:1 1 340px;min-width:320px;padding:48px 44px 40px 44px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;background:#fafdff;box-shadow:-2px 0 16px #b3c6e622;">
           <h3
-            style="margin:0 0 16px 0;color:#222;font-size:1.25em;font-weight:700;display:flex;align-items:center;gap:8px;">
+            style="margin:0 0 18px 0;color:#222;font-size:1.32em;font-weight:800;display:flex;align-items:center;gap:10px;letter-spacing:0.01em;">
             <span style='font-size:1.2em;'>📂</span> Select a sample JSON File
           </h3>
-          <span>If you do not have a JSON file, use our sample file.</span>
-
-          <div style="display:flex;align-items:center;gap:10px;width:100%;margin-bottom:10px;">
+          <span style="margin-bottom:10px;">If you do not have a JSON file, use our sample file.</span>
+          <div style="display:flex;align-items:center;gap:12px;width:100%;margin-bottom:16px;">
             <select id="jsonFileSelect"
-              style="flex:1 1 180px;padding:8px 12px;border-radius:6px;border:1.5px solid #c3d0e8;background:#f8fbff;color:#222;font-size:1em;font-family:'Manrope','Segoe UI',sans-serif;">
+              style="flex:1 1 180px;padding:12px 16px;border-radius:8px;border:2px solid #b3c6e6;background:#f8fbff;color:#222;font-size:1.08em;font-family:'Manrope','Segoe UI',sans-serif;box-shadow:0 2px 8px #b3c6e622;transition:box-shadow 0.2s,border 0.2s;outline:none;">
               <option value="LTResults.json">LTResults.json</option>
               <option value="LTSmartIgnoreResults.json">LTSmartIgnoreResults.json</option>
             </select>
             <button id="loadJsonBtn"
-              style="padding:8px 22px;border-radius:6px;border:1.5px solid #007bff;background:#007bff;color:#fff;font-weight:700;font-size:1em;cursor:pointer;box-shadow:0 2px 8px #007bff22;transition:background 0.2s,border 0.2s;">Load</button>
+              style="padding:12px 28px;border-radius:8px;border:none;background:linear-gradient(90deg,#007bff 60%,#66aaff 100%);color:#fff;font-weight:800;font-size:1.08em;cursor:pointer;box-shadow:0 2px 12px #007bff33;transition:background 0.2s,box-shadow 0.2s,transform 0.1s;outline:none;letter-spacing:0.01em;">
+              Load
+            </button>
           </div>
           <div
-            style="background:#f5f7fa;padding:18px 20px;border-radius:10px;margin-bottom:0;font-size:1.08em;color:#007bff;border:1px solid #e3e8f0;max-width:100%;box-shadow:0 2px 12px #007bff11;"
-            class="info-box">
-            <b style="display:flex;align-items:center;gap:6px;"><span style='font-size:1.1em;'>💡</span> What is
+            style="background:#f5f7fa;padding:20px 22px;border-radius:12px;margin-bottom:0;font-size:1.11em;color:#007bff;border:1.5px solid #e3e8f0;max-width:100%;box-shadow:0 2px 12px #007bff11;">
+            <b style="display:flex;align-items:center;gap:7px;"><span style='font-size:1.1em;'>💡</span> What is
               LambdaTest?</b><br>
             LambdaTest is an online platform that helps developers and testers check how their websites and apps look
             and work on different browsers, operating systems, and devices.
-
             <br><br>
-
-            <b style="display:flex;align-items:center;gap:6px;"><span style='font-size:1.1em;'>💡</span> What is Smart
+            <b style="display:flex;align-items:center;gap:7px;"><span style='font-size:1.1em;'>💡</span> What is Smart
               Ignore?</b><br>
             LambdaTest Smart Ignore hides layout shifts and pixel displacements that don't affect actual content. Focus
             only on real visual changes in your UI.
@@ -1366,6 +1372,53 @@
         </div>
       </div>
     </section>
+    <style>
+      /* Enhance welcome section buttons and inputs */
+      #welcomeSection button#loadJsonBtn {
+        box-shadow: 0 2px 12px #007bff33;
+        background: linear-gradient(90deg,#007bff 60%,#66aaff 100%);
+        color: #fff;
+        font-weight: 800;
+        font-size: 1.08em;
+        border: none;
+        border-radius: 8px;
+        padding: 12px 28px;
+        transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+        outline: none;
+        letter-spacing: 0.01em;
+      }
+      #welcomeSection button#loadJsonBtn:hover, #welcomeSection button#loadJsonBtn:focus {
+        background: linear-gradient(90deg,#0056b3 60%,#66aaff 100%);
+        box-shadow: 0 4px 24px #007bff55;
+        transform: translateY(-2px) scale(1.04);
+      }
+      #welcomeSection select#jsonFileSelect {
+        border: 2px solid #b3c6e6;
+        border-radius: 8px;
+        padding: 12px 16px;
+        font-size: 1.08em;
+        background: #f8fbff;
+        color: #222;
+        box-shadow: 0 2px 8px #b3c6e622;
+        transition: box-shadow 0.2s, border 0.2s;
+        outline: none;
+      }
+      #welcomeSection select#jsonFileSelect:focus {
+        border: 2px solid #007bff;
+        box-shadow: 0 4px 16px #007bff33;
+      }
+      /* Responsive: stack columns on small screens */
+      @media (max-width: 900px) {
+        #welcomeSection > div {
+          flex-direction: column !important;
+        }
+        #welcomeSection > div > div {
+          border-right: none !important;
+          border-bottom: 2.5px solid #b3c6e6;
+          box-shadow: none !important;
+        }
+      }
+    </style>
 
     <div id="loadingOverlay">
       <div class="spinner"></div>
@@ -1431,7 +1484,8 @@
           </select>
         </label>
         <button onclick="exportAllPDF()" title="PDF Export"
-          style="float: right; margin-left: 16px; padding: 7px 18px; border-radius: 7px; border: 1.5px solid var(--border-color); background: var(--panel-color); color: var(--text-color); font-weight: 500; font-size: 1em; cursor: pointer; box-shadow: 0 2px 8px #0001;">🧾 Export All Views</button>
+          style="float: right; margin-left: 16px; padding: 7px 18px; border-radius: 7px; border: 1.5px solid var(--border-color); background: var(--panel-color); color: var(--text-color); font-weight: 500; font-size: 1em; cursor: pointer; box-shadow: 0 2px 8px #0001;">🧾
+          Export All Views</button>
       </div>
       <div id="viewportContentContainer"></div>
     </div>
@@ -1441,13 +1495,15 @@
 
   <footer>
     <span class="footer-left">
-      <a href="https://github.com/vijopv83/LambdaTestSmartUIReporter" target="_blank">GitHub</a>: ⭐ the repo, open an issue, or submit a pull request!
+      <a href="https://github.com/vijopv83/LambdaTestSmartUIReporter" target="_blank">GitHub</a>: ⭐ the repo, open an
+      issue, or submit a pull request!
     </span>
     <span class="footer-right">
-      Creator. Builder. Curious? Let's talk → <a href="https://www.linkedin.com/in/vijopv83" target="_blank" rel="noopener noreferrer">linkedin.com/in/vijopv83
+      Creator. Builder. Curious? Let's talk → <a href="https://www.linkedin.com/in/vijopv83" target="_blank"
+        rel="noopener noreferrer">linkedin.com/in/vijopv83
       </a>
     </span>
-  </footer>  
+  </footer>
 
   <script defer>
     // Prevent error if renderDashboardCards is not defined
