@@ -1287,6 +1287,45 @@
     #welcomeSection>div>div:first-child {
       background: linear-gradient(120deg, #f8fbff 60%, #eaf3ff 100%) !important;
     }
+
+    /* Enhance welcome section buttons and inputs */
+    #welcomeSection button#loadJsonBtn {
+      box-shadow: 0 2px 12px #007bff33;
+      background: linear-gradient(90deg, #007bff 60%, #66aaff 100%);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.08em;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 28px;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+      outline: none;
+      letter-spacing: 0.01em;
+    }
+
+    #welcomeSection button#loadJsonBtn:hover,
+    #welcomeSection button#loadJsonBtn:focus {
+      background: linear-gradient(90deg, #0056b3 60%, #66aaff 100%);
+      box-shadow: 0 4px 24px #007bff55;
+      transform: translateY(-2px) scale(1.04);
+    }
+
+    #welcomeSection .vrt-info-box {
+      margin-top: 36px;
+      color: #333;
+      font-size: 1.1em;
+      font-weight: 500;
+      background: #f0f8ff;
+      padding: 10px 14px;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px #0001;
+    }
+
+    body.dark-mode #welcomeSection .vrt-info-box {
+      background: #232f3e !important;
+      color: #aee2ff !important;
+      border: 1.5px solid #2a3b4d !important;
+    }
   </style>
   <script>
     // Set dark mode class before rendering to prevent flash
@@ -1313,8 +1352,12 @@
       </div>
     </div>
     <div style="display:flex;justify-content:center;padding:4px 0 0 0;width:100vw;">
-      <a href="http://www.lambdatest.com?fp_ref=vijo85" target="_blank" style="outline:none;border:none;display:inline-block;">
-        <img src="https://d2gdx5nv84sdx2.cloudfront.net/uploads/n3ufe5o3/marketing_asset/banner/6476/Frame_1000003008.png" alt="lambdatest" border="0" style="max-width:98vw;height:auto;display:block;box-shadow:0 2px 12px #0001;border-radius:12px;"/>
+      <a href="http://www.lambdatest.com?fp_ref=vijo85" target="_blank"
+        style="outline:none;border:none;display:inline-block;">
+        <img
+          src="https://d2gdx5nv84sdx2.cloudfront.net/uploads/n3ufe5o3/marketing_asset/banner/6476/Frame_1000003008.png"
+          alt="lambdatest" border="0"
+          style="max-width:98vw;height:auto;display:block;box-shadow:0 2px 12px #0001;border-radius:12px;" />
       </a>
     </div>
     <section id="welcomeSection"
@@ -1325,7 +1368,7 @@
           style="flex:1 1 340px;min-width:320px;padding:24px 22px 22px 24px;background:linear-gradient(120deg,#f8fbff 60%,#eaf3ff 100%);border-right:2.5px solid #b3c6e6;display:flex;flex-direction:column;justify-content:center;box-shadow:2px 0 16px #b3c6e622;">
           <h2
             style="margin-top:0;margin-bottom:22px;color:#007bff;font-size:2.3em;font-weight:900;letter-spacing:0.01em;line-height:1.1;display:flex;align-items:center;gap:14px;text-shadow:0 2px 8px #b3c6e633;">
-            <span style='font-size:1.2em;'>🧪</span>Visual Test Insights!
+            <span style='font-size:1em;'>🧪</span>Visual Test Insights!
           </h2>
           <ol style="margin:0 0 0 18px;padding:0 0 0 10px;font-size:1.15em;line-height:1.8;">
             <li style="margin-bottom:16px;">Run SmartUI test in terminal:<br>
@@ -1335,8 +1378,8 @@
             <li style="margin-bottom:16px;">Open <b style="color:#007bff;">index.html</b> in your browser.</li>
             <li style="margin-bottom:16px;">On top right, click <b style="color:#007bff;">Upload JSON</b> and select <b
                 style="color:#d6336c;">results.json</b>.</li>
-            <div style="margin-top:36px; color:#333; font-size:1.1em; font-weight:500; background:#f0f8ff; padding:10px 14px; border-radius:4px; box-shadow:0 2px 8px #0001;">
-              Simulate and explore visual differences with ease:
+            <div class="vrt-info-box">
+              Simulate, explore visual differences with:
               <a href="https://vijopv83.github.io/VisualRegressionTester/" target="_blank"
                 style="color:#888; text-decoration:underline; font-weight:500;">VisualRegressionTester</a>
             </div>
@@ -1346,7 +1389,7 @@
         <div
           style="flex:1 1 340px;min-width:320px;padding:24px 22px 22px 24px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;background:#fafdff;box-shadow:-2px 0 16px #b3c6e622;">
           <h3
-            style="margin:0 0 18px 0;color:#222;font-size:1.32em;font-weight:800;display:flex;align-items:center;gap:10px;letter-spacing:0.01em;">
+            style="margin:0 0 0px 0;color:#222;font-size:1.32em;font-weight:800;display:flex;align-items:center;gap:10px;letter-spacing:0.01em;">
             <span style='font-size:1.2em;'>📂</span> Select a sample JSON File
           </h3>
           <span style="margin-bottom:10px;">If you do not have a JSON file, use our sample file.</span>
@@ -1363,13 +1406,15 @@
           </div>
           <div
             style="background:#f5f7fa;padding:20px 22px;border-radius:12px;margin-bottom:0;font-size:1.11em;color:#007bff;border:1.5px solid #e3e8f0;max-width:100%;box-shadow:0 2px 12px #007bff11;">
-            <b style="display:flex;align-items:center;gap:7px;"><span style='font-size:1.1em;'>💡</span> What is LambdaTest?</b><br>
-            LambdaTest is a cloud testing platform for web and mobile apps. 
-            It supports Selenium, Cypress, Playwright, CI/CD, and 3,000+ browser-device combinations.
+            <b style="display:flex;align-items:center;gap:4px;"><span style='font-size:1.2em;'>💡</span> What is
+              LambdaTest?</b><br>
+            LambdaTest is a testing platform for web and mobile apps.
+            It supports Selenium, Cypress, Playwright, CI/CD, on 3,000+ devices.
             <br><br>
-            <b style="display:flex;align-items:center;gap:7px;"><span style='font-size:1.1em;'>💡</span> What is LambdaTest SmartUI?</b><br>
-            SmartUI is a visual testing tool that uses AI to compare UI across browsers and devices. 
-            It supports CI/CD, Figma, and layout checks, with 2,000 free screenshots every month.
+            <b style="display:flex;align-items:center;gap:4px;"><span style='font-size:1.2em;'>💡</span> What is
+              LambdaTest SmartUI?</b><br>
+            SmartUI is an AI-powered visual testing tool that supports CI/CD, Figma, and layout checks, with 2,000 free
+            screenshots per month.
           </div>
         </div>
       </div>
